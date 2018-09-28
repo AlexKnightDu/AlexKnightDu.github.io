@@ -818,6 +818,33 @@ Tristerlzh
 
 
   
+    //_config.yml文件若没有添加enable: true可删除该判断
+
+          
+    
+      
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+      <script type="text/javascript">
+          var gitalk = new Gitalk({
+            clientID:  '6ddeb5f606a7d8c793fd', 
+            clientSecret: '874e007c7349ea0bf4475cb0235c18f265ef7622',
+            id: window.location.pathname,
+            repo: 'Gitalk_comments', 
+            owner: 'AlexKnightDu', 
+            admin: 'AlexKnightDu', 
+            distractionFreeMode: 'true',
+          })
+          gitalk.render('gitalk-container')
+      </script>
+    
+
+  
+
+
+
+
+  
 
   <script type="text/javascript">
     // Popup Window;
