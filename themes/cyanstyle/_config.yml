@@ -1,0 +1,31 @@
+# Header
+menu:
+  Home: /
+  Archives: /archives
+  Tags: /tags
+  About: /about
+
+# Content
+excerpt_link: More
+prev: Prev
+next: Next
+reply: Reply
+share: Share
+fancybox: true
+
+# Sidebar
+widgets:
+- category
+- tag
+- recent_posts
+
+#- tagcloud
+
+# Miscellaneous
+google_analytics:
+duoshuo_shortname: 
+rss: 
+google_site_verification: 
+baidu_site_verification: 
+favicon: 
+music: 

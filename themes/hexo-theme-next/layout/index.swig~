@@ -22,4 +22,5 @@
   {{ sidebar_template.render(false) }}
 {% endblock %}
 
+{% include 'gitalk.swig' %}
 
