@@ -479,7 +479,8 @@ pangu: false
 gitalk: 
   enable: true    #用来做启用判断可以不用
   githubID: AlexKnightDu
- repo: Gitalk_comments    #仓库名称
+
+  repo: Gitalk_comments    #仓库名称
   owner: AlexKnightDu    #github用户名
   admin: AlexKnightDu
   distractionFreeMode: true

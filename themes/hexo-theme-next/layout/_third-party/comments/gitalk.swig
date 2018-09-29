@@ -1,6 +1,6 @@
 {% if not (theme.duoshuo and theme.duoshuo.shortname) and not theme.duoshuo_shortname %}
   
-  {% if theme.gitalk.enable %}  //_config.yml文件若没有添加enable: true可删除该判断
+  {% if theme.gitalk.enable %} 
 
     {% if theme.gitalk.distractionFreeMode  %}      
     
