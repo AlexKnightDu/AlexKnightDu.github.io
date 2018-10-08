@@ -117,25 +117,25 @@
 
 
 
-  <meta name="description" content="Personal website of a stripling">
-<meta name="keywords" content="Code">
-<meta property="og:type" content="website">
-<meta property="og:title" content="tags">
-<meta property="og:url" content="https://www.cosmoslinked.me/tags/index.html">
+  <meta name="description" content="Autoencoder可以看做一种前向网络的特殊情况，所以可以用相同的训练方法。但是不同于常用的前向网络，Autoencoder还可以通过recirculation来进行训练，即通过比较输入和生成结果的activation的来进行学习。   Undercomplete Autoencoder对于 Undercomplete Autoencoder，学习过程可以简单地表示为:   L(x,g(f(x">
+<meta name="keywords" content="Note,ML">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于VAE">
+<meta property="og:url" content="https://www.cosmoslinked.me/2018/09/30/VAE/index.html">
 <meta property="og:site_name" content="Adventure">
-<meta property="og:description" content="Personal website of a stripling">
+<meta property="og:description" content="Autoencoder可以看做一种前向网络的特殊情况，所以可以用相同的训练方法。但是不同于常用的前向网络，Autoencoder还可以通过recirculation来进行训练，即通过比较输入和生成结果的activation的来进行学习。   Undercomplete Autoencoder对于 Undercomplete Autoencoder，学习过程可以简单地表示为:   L(x,g(f(x">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-09-28T05:57:04.000Z">
+<meta property="og:updated_time" content="2018-09-30T07:01:19.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tags">
-<meta name="twitter:description" content="Personal website of a stripling">
+<meta name="twitter:title" content="关于VAE">
+<meta name="twitter:description" content="Autoencoder可以看做一种前向网络的特殊情况，所以可以用相同的训练方法。但是不同于常用的前向网络，Autoencoder还可以通过recirculation来进行训练，即通过比较输入和生成结果的activation的来进行学习。   Undercomplete Autoencoder对于 Undercomplete Autoencoder，学习过程可以简单地表示为:   L(x,g(f(x">
 
 
 
 
 
 
-  <link rel="canonical" href="https://www.cosmoslinked.me/tags/"/>
+  <link rel="canonical" href="https://www.cosmoslinked.me/2018/09/30/VAE/"/>
 
 
 
@@ -145,7 +145,7 @@
   };
 </script>
 
-  <title>tags | Adventure</title>
+  <title>关于VAE | Adventure</title>
   
 
 
@@ -256,7 +256,7 @@
         
         
           
-          <li class="menu-item menu-item-tags menu-item-active">
+          <li class="menu-item menu-item-tags">
     <a href="/tags/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
   </li>
@@ -284,25 +284,6 @@
 
   
     
-
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
 
   
 
@@ -353,97 +334,179 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.cosmoslinked.me/2018/09/30/VAE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ALXD">
+      <meta itemprop="description" content="Personal website of a stripling">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Adventure">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">tags</h1>
-
-<div class="post-meta">
-  
-  
-
-
-
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="tag-cloud">
-            <div class="tag-cloud-title">
-                
-                
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                10 tags in total
-            </div>
-            <div class="tag-cloud-tags">
-              <a href="/tags/Algorithm/" style="font-size: 12px; color: #ccc">Algorithm</a> <a href="/tags/Coding/" style="font-size: 12px; color: #ccc">Coding</a> <a href="/tags/Else/" style="font-size: 21px; color: #6f6f6f">Else</a> <a href="/tags/Feeling/" style="font-size: 12px; color: #ccc">Feeling</a> <a href="/tags/Lesson/" style="font-size: 12px; color: #ccc">Lesson</a> <a href="/tags/ML/" style="font-size: 21px; color: #6f6f6f">ML</a> <a href="/tags/Note/" style="font-size: 30px; color: #111">Note</a> <a href="/tags/Programming-Language/" style="font-size: 12px; color: #ccc">Programming Language</a> <a href="/tags/Thoery/" style="font-size: 12px; color: #ccc">Thoery</a> <a href="/tags/Tools/" style="font-size: 21px; color: #6f6f6f">Tools</a>
-            </div>
-          </div>
+          <h1 class="post-title" itemprop="name headline">关于VAE
+              
+            
+          </h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-09-30 10:19:21 / Modified: 15:01:19" itemprop="dateCreated datePublished" datetime="2018-09-30T10:19:21+08:00">2018-09-30</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p>Autoencoder可以看做一种前向网络的特殊情况，所以可以用相同的训练方法。但是不同于常用的前向网络，Autoencoder还可以通过recirculation来进行训练，即通过比较输入和生成结果的activation的来进行学习。  </p>
+<h4 id="Undercomplete-Autoencoder"><a href="#Undercomplete-Autoencoder" class="headerlink" title="Undercomplete Autoencoder"></a>Undercomplete Autoencoder</h4><p>对于 Undercomplete Autoencoder，学习过程可以简单地表示为:  </p>
+<script type="math/tex; mode=display">L(x,g(f(x)))</script><p>其中如果decider是线性并且L是均方误差，那么最终得到的子空间呢与PCA相同。<br>如果Hidden code具有的维度比输入数据要高，或者Autoencoder过于复杂，则学不到任何有用的信息。</p>
+<h4 id="Regularized-Autoencoder"><a href="#Regularized-Autoencoder" class="headerlink" title="Regularized Autoencoder"></a>Regularized Autoencoder</h4><p>相比于限制Autoencoder，Re</p>
+
       
     </div>
-    
-
-
 
     
+
     
     
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Note/" rel="tag"># Note</a>
+          
+            <a href="/tags/ML/" rel="tag"># ML</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/20/Introduction_to_graph_theory/" rel="next" title="图论">
+                <i class="fa fa-chevron-left"></i> 图论
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/30/blogs-choose/" rel="prev" title="在Blog选择上的尝试">
+                在Blog选择上的尝试 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
   </div>
 
 
           </div>
           
+
+  
+    <div id="gitalk-container"></div>
+
+  
+
+
 
         </div>
         
@@ -464,8 +527,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -555,6 +627,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Undercomplete-Autoencoder"><span class="nav-number">1.</span> <span class="nav-text">Undercomplete Autoencoder</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Regularized-Autoencoder"><span class="nav-number">2.</span> <span class="nav-text">Regularized Autoencoder</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1105,6 +1193,30 @@
   
   
 
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
   
 
 
