@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[关于字符串与排序的一些算法]]></title>
+    <url>%2F2018%2F12%2F24%2Fstring-sort-algorithms%2F</url>
+    <content type="text"><![CDATA[“Alphabets” Key-indexed counting本质上是一种类似于基数排序（”radix”）的思想，与基数排序很相近，从而能够得到稳定的\Theta(N) LSD string sort]]></content>
+      <tags>
+        <tag>Note</tag>
+        <tag>Algorithm</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[关于系统引导]]></title>
     <url>%2F2018%2F12%2F22%2Fsystem-boot%2F</url>
     <content type="text"></content>
@@ -9,6 +18,15 @@
     <title></title>
     <url>%2F2018%2F12%2F21%2Fintel-netcards%2F</url>
     <content type="text"><![CDATA[title: NAS以及网卡date: 2018-12-21 16:31:10 tags: [Tools, Else]]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[关于字符串的一些算法]]></title>
+    <url>%2F2018%2F12%2F10%2Fstring-related-algorithms%2F</url>
+    <content type="text"><![CDATA[最长回文子串 中心点扩散 复杂度 $\Theta(n^2)$ 中心点扩散优化 复杂度 $\Theta(n^2)$ 在中心点扩散的基础上进行中间是否有相同字符的判断，对随机数据具有很好的表现 Manacher算法 对称轴：在所有间隙插入没有出现过的相同字符 KMP 最大公共子串 DP 回文树 最长回文子序列]]></content>
+      <tags>
+        <tag>Note</tag>
+        <tag>Algorithm</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[字符串匹配]]></title>
@@ -33,6 +51,15 @@
     <title><![CDATA[Lucas-Kanade & 光流法]]></title>
     <url>%2F2018%2F11%2F24%2Flk-algorithm%2F</url>
     <content type="text"></content>
+      <tags>
+        <tag>Note</tag>
+        <tag>CV</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[《计算机视觉：模型，学习和推理》]]></title>
+    <url>%2F2018%2F11%2F11%2Fcv-models-learning-inference%2F</url>
+    <content type="text"><![CDATA[Chapter 14稀疏立体重构光心 投影点 成像平面 焦距 归一化参数： x = u/\omega \ \ y = v/\omega 焦距参数: 感光体间距 偏移量和偏移参数 x = \frac{\phi_xu + \gamma v}{\omega} + \delta_xy = \frac{\phi_yv}{\omega} + \delta_y 摄像机的位置和方向： \omega' = \Omega\omega + \tau 内参：\Lambda = \left[ \begin{matrix} \phi_x & \gamma & \delta_x \\ 0 & \phi_y & \delta_y \\ 0 & 0 & 1 \end{matrix} \right] 综上：全投影模型 x = pinhole[\omega,\Lambda, \Omega, \tau]球形协方差分布的加性噪声 Pr(x|\omega,\Lambda,\Omega, \tau] = Norm_x[pinhole[\omega,\Lambda,\Omega, \tau],\sigma^2I] 径向畸变]]></content>
       <tags>
         <tag>Note</tag>
         <tag>CV</tag>
@@ -125,8 +152,8 @@
     <content type="text"><![CDATA[感觉好像一直都是在烧，但是并没学到太多东西……]]></content>
       <tags>
         <tag>Tools</tag>
-        <tag>Music</tag>
         <tag>Guitar</tag>
+        <tag>Music</tag>
       </tags>
   </entry>
   <entry>
