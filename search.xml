@@ -1,14 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[关于系统引导]]></title>
+    <url>%2F2018%2F12%2F22%2Fsystem-boot%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>%2F2018%2F12%2F21%2Fintel-netcards%2F</url>
+    <content type="text"><![CDATA[title: NAS以及网卡date: 2018-12-21 16:31:10 tags: [Tools, Else]]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[字符串匹配]]></title>
+    <url>%2F2018%2F12%2F01%2Fstring-match%2F</url>
+    <content type="text"><![CDATA[复试的时候一个KMP卡半天都没写出来，太眼高手低了吧…… Robin-Karp预处理时间 \Theta(m) , 最坏运行时间 \Theta((n-m+1)m) Robin-Karp算法其实感觉和直接比较的方式很相近，只是对于比较的过程进行了优化，通过模运算，或者哈希等方式，尽可能将比较的复杂度从 \Theta(m) 降到 \Theta(1)，但是这样就会带来伪命中点，所以最坏情况会和直接比较的复杂度相同 123456789101112131415161718RABIN-KARP-MATCHER(T,P,d,q):n = T.lengthm = P.lengthh = d^(m-1) mod qp = 0t_0 = 0// p过大的时候通过模运算来减少比较所需复杂度for i = 1 to m p = (dp + p[i]) mod q t_0 = (dt_0 + T[i]) mod q for s = 0 to n-m // 余数一样就实际比较一下避免伪命中点 if p == t_s if P[1..m] = T[s+1..s+m] print&quot;yes we get s&quot; // 没中就移位 if s &lt; n-m t_(s+1) = (d(t_s - T[s+1]h) + T[s+m+1]) mod q 霍纳法则（Horner Rule）秦九韶算法…… 二维匹配当匹配扩展到二维是，即在一个 n_1*n_2 的二维字符组成中搜寻一个给定的 m_1*m_2 的模式。同样的思想，首先对模式矩阵进行处理，对每一列都进行哈希然后进行组合，就将二维降维成了一维的字符串，如果每列得到k个字符，则一共是 m_2*k 个字符组成的字符串。然后，对大矩阵的前 m_1 行进行同样的操作，用同样的方法能得到一个长度为n_2 * k的串。对接下来的 m_1+1,m_1+2,... 行进行相同的操作直至找到相同模式，这样就二维降维成了一维，并且能够使用一些trick来提高效率。类似一维的情况，这里每次匹配时，转化后的一维串可以通过上次的串直接计算出来。（类似于Rabin-Karp由 t_s 可以在常数时间内计算出 t_s+1） 有限自动机预处理时间 \Theta(m|\Sigma|) , 最坏运行时间 \Theta(n) 在学过编译原理后就能感觉到这种方式其实和编译器中的DFA干的是一件事。通过待匹配的模式串建立一个有限状态自动机来接收输入并判断是否接受。 Knuth-Morris-Pratt预处理时间 \Theta(m) , 最坏运行时间 \Theta(n) KMP算法的核心就是通过计算模式串本身所携带的信息来得到每次比较失败后应该移动的距离，也就是前缀函数\pi(k)的功能。 12 Boyer-Moore预处理时间 \Theta(m + k) , 最好运行时间 \Omega(n/m), 最坏运行时间 \Theta(n) AC自动机Reference《算法导论》《算法》(R.Sedgewick &amp; K.Wayne) http://blog.sina.com.cn/s/blog_6a09b5a70100nhnr.html]]></content>
+      <tags>
+        <tag>Note</tag>
+        <tag>Algorithm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[PTAM]]></title>
+    <url>%2F2018%2F11%2F30%2FPTAM%2F</url>
+    <content type="text"><![CDATA[Single Shot MultiBox Detector]]></content>
+      <tags>
+        <tag>Note</tag>
+        <tag>SLAM</tag>
+        <tag>Paper</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Lucas-Kanade & 光流法]]></title>
+    <url>%2F2018%2F11%2F24%2Flk-algorithm%2F</url>
+    <content type="text"></content>
+      <tags>
+        <tag>Note</tag>
+        <tag>CV</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[线性代数 Note]]></title>
+    <url>%2F2018%2F11%2F07%2Flinear-algebra%2F</url>
+    <content type="text"><![CDATA[数学很重要…… 张成空间是包含这组向量的最小子空间。 span(v_1,...,v_m) = \{a_1v_1 + ... + a_mv_m:a_1,...,a_m \in F\}映射到标量域F的线性映射具有特殊的地位，称之为线性泛函。 V$$上的所有的线性泛函构成的向量空间称为$$V$$的对偶空间，记为$$V'$$, 即 $$V' = L(V,F)$$， 且有 $$dim V' = dim VA的行秩是A的诸行在F^{1,n}中张成空间的维数；A的列秩是A的诸列在F^{m,1}中张成空间的维数。 本征值不变子空间 算子方阵]]></content>
+      <tags>
+        <tag>Note</tag>
+        <tag>Math</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[《计算机视觉：算法与应用》Note]]></title>
     <url>%2F2018%2F11%2F02%2Fcv-algorithms-and-applications%2F</url>
-    <content type="text"><![CDATA[Chapter 1]]></content>
+    <content type="text"><![CDATA[Chapter 1 Chapter 22.1 几何基元 2D点 x = (x,y) \in R^2$$ 或者 $$\tilde{x} = (\tilde{x}, \tilde{y}, \tilde{\omega}) \in P^2其中 P^2 = R^3 - (0,0,0) 称作2D投影空间。 2D直线 \tilde{l} = (a,b,c) \Longleftrightarrow \tilde{x} \cdot \tilde{l} = ax + by + c = 0规范化 l = (\hat{n}_x, \hat{n}_y, d) = (\hat{n}, d) 其中 \|\hat{n}\| = 1可以将\hat{n}表示为旋转角\theta的函数 \hat{n} = (\hat{n}_x, \hat{n}_y) = (cos\theta, sin\theta) \Rightarrow (\theta,d) （极坐标）交点 \hat{x} = \hat{l}_1 \times \hat{l}_2连线 \hat{l} = \hat{x}_1 \times \hat{x}_2 3D直线 r = (1 - \lambda)p + \lambda q 2D变换 平移 旋转 相似 仿射 投影 平面状表面流 3D旋转 轴/角（指数扭曲）Rodriguez公式 单位四元数 R(q) 球面线性内插（四元数插值） 3D 到 2D 投影 相机内参数 Chapter 4Chapter 6 配准最小二乘Jacobian matrix迭代算法鲁棒最小二乘 RANSAC/LMS 迭代重加权最小二乘 姿态估计 直接线性估计 迭代 相机配准 消失点 Chapter 8 稠密运动Image registration 基于块的平移配准（光流）亮度恒常性约束（brightness constancy constraint）空间变化权重偏差与增益（曝光差）相关性 规范化互相关（normalized cross-correaltion， NCC） 参数化运动逐次求精 ???光流约束 I_xu + I_yv + I_t = 0]]></content>
+      <tags>
+        <tag>Note</tag>
+        <tag>CV</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[《Effective C++》Note]]></title>
     <url>%2F2018%2F10%2F27%2Feffective-c%2F</url>
-    <content type="text"><![CDATA[Item 1C++ is big Item 20const &amp;相对于直接传值带来效率的提高避免多余的构造和析构避免slicing（对象分割），派生类不会由基类复制构造产生，故也保留了本身的性质对于内置类型以及STL迭代器和函数对象时，习惯上都被设计为传值 Item 21return object;stack / heap 避免调用构造函数 1234inline const Rational operator * (..)&#123; return Rational(..); // Just return a new object&#125; Item 3const常量 参数 返回值 成员函数bitwise constness / logical constness (mutable)casting away constness 123non_const&#123; const_cast&lt;&gt;(const())&#125; Item 2const, enum, inline &gt; #defineclass专属常量 1234class x&#123; static const int NumTurns; // Declaration&#125; const int x::NumTurns = 1; // Definition enum hack宏函数 —&gt; template inline 12345template&lt;typename T&gt;inline void callWithMax(const T&amp; s, const T&amp; b) &#123; f(a &gt; b ? a : b);&#125; Item 7多态基类 virtual ~()避免基类的析构无法把派生类的一些内容清除vptr Item 24Item 34接口继承 和 实现继承 Item 4Initialization成员初值列non-local static 单例模式 Item 5 &amp; Item 612345678class Empty&#123;public: Empty() &#123;...&#125; Empty(const Empty&amp; rhs) &#123;...&#125; ~Empty() &#123;...&#125; Empty&amp; operator=(const Empty&amp; rhs) &#123;...&#125;&#125; 在没有reference以及const等条件限制下，编译器会自动生成这些函数，但是如果不想这些生成，则应该通过private或单独设计一个base class等方式不去定义 12345678class Uncopyable&#123;protected: Uncopyable() &#123;&#125; ~Uncopyable() &#123;&#125;private: Uncopyable(const Uncopyable&amp;); Uncopyable&amp; operator=(const Uncopyable&amp;);&#125;; Item 8不要让析构函数抛出异常 The C++ Programming Language 函数对象 灵巧指针 显式构造函数]]></content>
+    <content type="text"><![CDATA[Item 1C++ is big Item 20const &amp;相对于直接传值带来效率的提高避免多余的构造和析构避免slicing（对象分割），派生类不会由基类复制构造产生，故也保留了本身的性质对于内置类型以及STL迭代器和函数对象时，习惯上都被设计为传值 Item 21return object;stack / heap 避免调用构造函数 1234inline const Rational operator * (..)&#123; return Rational(..); // Just return a new object&#125; Item 3const常量 参数 返回值 成员函数bitwise constness / logical constness (mutable)casting away constness 123non_const&#123; const_cast&lt;&gt;(const())&#125; Item 2const, enum, inline &gt; #defineclass专属常量 1234class x&#123; static const int NumTurns; // Declaration&#125; const int x::NumTurns = 1; // Definition enum hack宏函数 —&gt; template inline 12345template&lt;typename T&gt;inline void callWithMax(const T&amp; s, const T&amp; b) &#123; f(a &gt; b ? a : b);&#125; Item 7多态基类 virtual ~()避免基类的析构无法把派生类的一些内容清除vptr Item 24Item 34接口继承 和 实现继承 Item 4Initialization成员初值列non-local static 单例模式 Item 5 &amp; Item 612345678class Empty&#123;public: Empty() &#123;...&#125; Empty(const Empty&amp; rhs) &#123;...&#125; ~Empty() &#123;...&#125; Empty&amp; operator=(const Empty&amp; rhs) &#123;...&#125;&#125; 在没有reference以及const等条件限制下，编译器会自动生成这些函数，但是如果不想这些生成，则应该通过private或单独设计一个base class等方式不去定义 12345678class Uncopyable&#123;protected: Uncopyable() &#123;&#125; ~Uncopyable() &#123;&#125;private: Uncopyable(const Uncopyable&amp;); Uncopyable&amp; operator=(const Uncopyable&amp;);&#125;; Item 8不要让析构函数抛出异常 Item 23愈多东西被封装，愈少人可以看到它，我们就有愈大的弹性去变化它。相同机能的member函数（可以访问private，enums，typedefs等）和non-member函数之间，non-member(non-friend)的封装性更好。当然non-member只是针对所在类而言，对其他类没有关系。自然的做法是放在同一个命名空间中。 Item 31编译依存关系声明式 定义式Handle classInterface class Item 18Item 36Item 54Item 13The C++ Programming Language 函数对象 灵巧指针 显式构造函数]]></content>
       <tags>
         <tag>Coding</tag>
         <tag>Programming_language</tag>
@@ -44,8 +95,8 @@
     <url>%2F2018%2F10%2F10%2Fopencv-tracing%2F</url>
     <content type="text"><![CDATA[齐次坐标本质矩阵单应矩阵Reference:https://blog.csdn.net/saltriver/article/details/79680364https://www.zhihu.com/question/59595799]]></content>
       <tags>
-        <tag>Tools</tag>
         <tag>SLAM</tag>
+        <tag>Tools</tag>
         <tag>CV</tag>
       </tags>
   </entry>
@@ -74,8 +125,8 @@
     <content type="text"><![CDATA[感觉好像一直都是在烧，但是并没学到太多东西……]]></content>
       <tags>
         <tag>Tools</tag>
-        <tag>Guitar</tag>
         <tag>Music</tag>
+        <tag>Guitar</tag>
       </tags>
   </entry>
   <entry>

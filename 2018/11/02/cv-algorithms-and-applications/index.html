@@ -117,19 +117,19 @@
 
 
 
-  <meta name="description" content="Chapter 1">
-<meta name="keywords" content="Code">
+  <meta name="description" content="Chapter 1    Chapter 22.1 几何基元  2D点    x = (x,y) \in R^2$$ 或者 $$\tilde{x} = (\tilde{x}, \tilde{y}, \tilde{\omega}) \in P^2其中 P^2 = R^3 - (0,0,0) 称作2D投影空间。  2D直线   \tilde{l} = (a,b,c) \Longleftrightarr">
+<meta name="keywords" content="Note,CV">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《计算机视觉：算法与应用》Note">
 <meta property="og:url" content="https://www.cosmoslinked.me/2018/11/02/cv-algorithms-and-applications/index.html">
 <meta property="og:site_name" content="Adventure">
-<meta property="og:description" content="Chapter 1">
+<meta property="og:description" content="Chapter 1    Chapter 22.1 几何基元  2D点    x = (x,y) \in R^2$$ 或者 $$\tilde{x} = (\tilde{x}, \tilde{y}, \tilde{\omega}) \in P^2其中 P^2 = R^3 - (0,0,0) 称作2D投影空间。  2D直线   \tilde{l} = (a,b,c) \Longleftrightarr">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://www.cosmoslinked.me/2018/11/02/cv-algorithms-and-applications/cv_algo&app_ch1.png">
-<meta property="og:updated_time" content="2018-11-02T13:32:38.000Z">
+<meta property="og:updated_time" content="2018-11-23T12:41:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《计算机视觉：算法与应用》Note">
-<meta name="twitter:description" content="Chapter 1">
+<meta name="twitter:description" content="Chapter 1    Chapter 22.1 几何基元  2D点    x = (x,y) \in R^2$$ 或者 $$\tilde{x} = (\tilde{x}, \tilde{y}, \tilde{\omega}) \in P^2其中 P^2 = R^3 - (0,0,0) 称作2D投影空间。  2D直线   \tilde{l} = (a,b,c) \Longleftrightarr">
 <meta name="twitter:image" content="https://www.cosmoslinked.me/2018/11/02/cv-algorithms-and-applications/cv_algo&app_ch1.png">
 
 
@@ -392,12 +392,24 @@
                 
               
 
-              <time title="Created: 2018-11-02 20:05:27 / Modified: 21:32:38" itemprop="dateCreated datePublished" datetime="2018-11-02T20:05:27+08:00">2018-11-02</time>
+              <time title="Created: 2018-11-02 20:05:27" itemprop="dateCreated datePublished" datetime="2018-11-02T20:05:27+08:00">2018-11-02</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-11-23 20:41:46" itemprop="dateModified" datetime="2018-11-23T20:41:46+08:00">2018-11-23</time>
               
             
           </span>
@@ -431,7 +443,54 @@
 
       
         <h2 id="Chapter-1"><a href="#Chapter-1" class="headerlink" title="Chapter 1"></a>Chapter 1</h2><img src="/2018/11/02/cv-algorithms-and-applications/cv_algo&app_ch1.png">   
-
+<h2 id="Chapter-2"><a href="#Chapter-2" class="headerlink" title="Chapter 2"></a>Chapter 2</h2><h4 id="2-1"><a href="#2-1" class="headerlink" title="2.1"></a>2.1</h4><ul>
+<li><p>几何基元</p>
+<ul>
+<li><p>2D点   </p>
+<script type="math/tex; mode=display">x = (x,y) \in R^2$$ 或者 $$\tilde{x} = (\tilde{x}, \tilde{y}, \tilde{\omega}) \in P^2</script><p>其中 <script type="math/tex">P^2 = R^3 - (0,0,0)</script> 称作2D投影空间。</p>
+</li>
+<li><p>2D直线  </p>
+<script type="math/tex; mode=display">\tilde{l} = (a,b,c) \Longleftrightarrow \tilde{x} \cdot \tilde{l} = ax + by + c = 0</script><p>规范化 <script type="math/tex">l = (\hat{n}_x, \hat{n}_y, d) = (\hat{n}, d)</script> 其中 <script type="math/tex">\|\hat{n}\| = 1</script><br>可以将<script type="math/tex">\hat{n}</script>表示为旋转角<script type="math/tex">\theta</script>的函数 <script type="math/tex">\hat{n} = (\hat{n}_x, \hat{n}_y) = (cos\theta, sin\theta) \Rightarrow (\theta,d)</script> （极坐标）<br>交点 <script type="math/tex">\hat{x} = \hat{l}_1 \times \hat{l}_2</script><br>连线 <script type="math/tex">\hat{l} = \hat{x}_1 \times \hat{x}_2</script></p>
+</li>
+<li><p>3D直线</p>
+<script type="math/tex; mode=display">r = (1 - \lambda)p + \lambda q</script></li>
+</ul>
+</li>
+<li><p>2D变换</p>
+<ul>
+<li>平移</li>
+<li>旋转</li>
+<li>相似</li>
+<li>仿射</li>
+<li>投影</li>
+<li>平面状表面流     </li>
+</ul>
+</li>
+<li><p>3D旋转</p>
+<ul>
+<li>轴/角（指数扭曲）<br>Rodriguez公式</li>
+<li>单位四元数  <script type="math/tex; mode=display">R(q)</script>  球面线性内插（四元数插值）    </li>
+</ul>
+</li>
+<li><p>3D 到 2D 投影</p>
+</li>
+<li>相机内参数</li>
+</ul>
+<h2 id="Chapter-4"><a href="#Chapter-4" class="headerlink" title="Chapter 4"></a>Chapter 4</h2><h2 id="Chapter-6"><a href="#Chapter-6" class="headerlink" title="Chapter 6"></a>Chapter 6</h2><ul>
+<li><p>配准<br>最小二乘<br>Jacobian matrix<br>迭代算法<br>鲁棒最小二乘 RANSAC/LMS 迭代重加权最小二乘</p>
+</li>
+<li><p>姿态估计<br>  直接线性估计<br>  迭代</p>
+</li>
+<li><p>相机配准<br>  消失点</p>
+</li>
+</ul>
+<h2 id="Chapter-8-稠密运动"><a href="#Chapter-8-稠密运动" class="headerlink" title="Chapter 8 稠密运动"></a>Chapter 8 稠密运动</h2><p>Image registration</p>
+<ul>
+<li>基于块的平移配准（光流）<br>亮度恒常性约束（brightness constancy constraint）<br>空间变化权重<br>偏差与增益（曝光差）<br>相关性 规范化互相关（normalized cross-correaltion， NCC）  </li>
+</ul>
+<p>参数化运动<br>逐次求精</p>
+<p>???<strong>光流约束</strong>   </p>
+<script type="math/tex; mode=display">I_xu + I_yv + I_t = 0</script>
       
     </div>
 
@@ -448,6 +507,14 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Note/" rel="tag"># Note</a>
+          
+            <a href="/tags/CV/" rel="tag"># CV</a>
+          
+        </div>
       
 
       
@@ -467,6 +534,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/07/linear-algebra/" rel="prev" title="线性代数 Note">
+                线性代数 Note <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -539,7 +610,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">19</span>
+                    <span class="site-state-item-count">25</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -586,7 +657,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">16</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">18</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -636,7 +711,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-1"><span class="nav-number">1.</span> <span class="nav-text">Chapter 1</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-1"><span class="nav-number">1.</span> <span class="nav-text">Chapter 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-2"><span class="nav-number">2.</span> <span class="nav-text">Chapter 2</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1"><span class="nav-number">2.0.1.</span> <span class="nav-text">2.1</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-4"><span class="nav-number">3.</span> <span class="nav-text">Chapter 4</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-6"><span class="nav-number">4.</span> <span class="nav-text">Chapter 6</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-8-稠密运动"><span class="nav-number">5.</span> <span class="nav-text">Chapter 8 稠密运动</span></a></li></ol></div>
             
 
           </div>
@@ -656,7 +731,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
@@ -1192,6 +1267,30 @@
   
   
 
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
   
 
 

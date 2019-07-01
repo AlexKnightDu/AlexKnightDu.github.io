@@ -125,7 +125,7 @@
 <meta property="og:site_name" content="Adventure">
 <meta property="og:description" content="Item 1C++ is big Item 20const &amp;amp;相对于直接传值带来效率的提高避免多余的构造和析构避免slicing（对象分割），派生类不会由基类复制构造产生，故也保留了本身的性质对于内置类型以及STL迭代器和函数对象时，习惯上都被设计为传值 Item 21return object;stack / heap 避免调用构造函数 1234inline const Rational">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-11-01T06:24:35.000Z">
+<meta property="og:updated_time" content="2018-12-21T13:48:12.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《Effective C++》Note">
 <meta name="twitter:description" content="Item 1C++ is big Item 20const &amp;amp;相对于直接传值带来效率的提高避免多余的构造和析构避免slicing（对象分割），派生类不会由基类复制构造产生，故也保留了本身的性质对于内置类型以及STL迭代器和函数对象时，习惯上都被设计为传值 Item 21return object;stack / heap 避免调用构造函数 1234inline const Rational">
@@ -407,7 +407,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-11-01 14:24:35" itemprop="dateModified" datetime="2018-11-01T14:24:35+08:00">2018-11-01</time>
+                <time title="Modified: 2018-12-21 21:48:12" itemprop="dateModified" datetime="2018-12-21T21:48:12+08:00">2018-12-21</time>
               
             
           </span>
@@ -457,7 +457,9 @@
 <p>在没有reference以及const等条件限制下，编译器会自动生成这些函数，但是如果不想这些生成，则应该通过private或单独设计一个base class等方式不去定义</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Uncopyable</span>&#123;</span></span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line">	Uncopyable() &#123;&#125;</span><br><span class="line">	~Uncopyable() &#123;&#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	Uncopyable(<span class="keyword">const</span> Uncopyable&amp;);</span><br><span class="line">	Uncopyable&amp; <span class="keyword">operator</span>=(<span class="keyword">const</span> Uncopyable&amp;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h4 id="Item-8"><a href="#Item-8" class="headerlink" title="Item 8"></a>Item 8</h4><p>不要让析构函数抛出异常</p>
-<h2 id="The-C-Programming-Language"><a href="#The-C-Programming-Language" class="headerlink" title="The C++ Programming Language"></a>The C++ Programming Language</h2><ul>
+<h4 id="Item-23"><a href="#Item-23" class="headerlink" title="Item 23"></a>Item 23</h4><p>愈多东西被封装，愈少人可以看到它，我们就有愈大的弹性去变化它。<br>相同机能的member函数（可以访问private，enums，typedefs等）和non-member函数之间，non-member(non-friend)的封装性更好。当然non-member只是针对所在类而言，对其他类没有关系。<br>自然的做法是放在同一个命名空间中。</p>
+<h4 id="Item-31"><a href="#Item-31" class="headerlink" title="Item 31"></a>Item 31</h4><p>编译依存关系<br>声明式 定义式<br>Handle class<br>Interface class  </p>
+<h4 id="Item-18"><a href="#Item-18" class="headerlink" title="Item 18"></a>Item 18</h4><h4 id="Item-36"><a href="#Item-36" class="headerlink" title="Item 36"></a>Item 36</h4><h4 id="Item-54"><a href="#Item-54" class="headerlink" title="Item 54"></a>Item 54</h4><h4 id="Item-13"><a href="#Item-13" class="headerlink" title="Item 13"></a>Item 13</h4><h2 id="The-C-Programming-Language"><a href="#The-C-Programming-Language" class="headerlink" title="The C++ Programming Language"></a>The C++ Programming Language</h2><ul>
 <li>函数对象</li>
 <li>灵巧指针</li>
 <li>显式构造函数</li>
@@ -582,7 +584,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">19</span>
+                    <span class="site-state-item-count">25</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -629,7 +631,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">16</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">18</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -679,7 +685,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Item-1"><span class="nav-number">1.</span> <span class="nav-text">Item 1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Item-20"><span class="nav-number">2.</span> <span class="nav-text">Item 20</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Item-21"><span class="nav-number">3.</span> <span class="nav-text">Item 21</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Item-3"><span class="nav-number">4.</span> <span class="nav-text">Item 3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Item-2"><span class="nav-number">5.</span> <span class="nav-text">Item 2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Item-7"><span class="nav-number">6.</span> <span class="nav-text">Item 7</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Item-24"><span class="nav-number">7.</span> <span class="nav-text">Item 24</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Item-34"><span class="nav-number">8.</span> <span class="nav-text">Item 34</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Item-4"><span class="nav-number">9.</span> <span class="nav-text">Item 4</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Item-5-amp-Item-6"><span class="nav-number">10.</span> <span class="nav-text">Item 5 &amp; Item 6</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Item-8"><span class="nav-number">11.</span> <span class="nav-text">Item 8</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-C-Programming-Language"><span class="nav-number"></span> <span class="nav-text">The C++ Programming Language</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Item-1"><span class="nav-number">1.</span> <span class="nav-text">Item 1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Item-20"><span class="nav-number">2.</span> <span class="nav-text">Item 20</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Item-21"><span class="nav-number">3.</span> <span class="nav-text">Item 21</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Item-3"><span class="nav-number">4.</span> <span class="nav-text">Item 3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Item-2"><span class="nav-number">5.</span> <span class="nav-text">Item 2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Item-7"><span class="nav-number">6.</span> <span class="nav-text">Item 7</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Item-24"><span class="nav-number">7.</span> <span class="nav-text">Item 24</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Item-34"><span class="nav-number">8.</span> <span class="nav-text">Item 34</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Item-4"><span class="nav-number">9.</span> <span class="nav-text">Item 4</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Item-5-amp-Item-6"><span class="nav-number">10.</span> <span class="nav-text">Item 5 &amp; Item 6</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Item-8"><span class="nav-number">11.</span> <span class="nav-text">Item 8</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Item-23"><span class="nav-number">12.</span> <span class="nav-text">Item 23</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Item-31"><span class="nav-number">13.</span> <span class="nav-text">Item 31</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Item-18"><span class="nav-number">14.</span> <span class="nav-text">Item 18</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Item-36"><span class="nav-number">15.</span> <span class="nav-text">Item 36</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Item-54"><span class="nav-number">16.</span> <span class="nav-text">Item 54</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Item-13"><span class="nav-number">17.</span> <span class="nav-text">Item 13</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-C-Programming-Language"><span class="nav-number"></span> <span class="nav-text">The C++ Programming Language</span></a></div>
             
 
           </div>
@@ -699,7 +705,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
