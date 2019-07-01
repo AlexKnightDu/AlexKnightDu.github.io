@@ -15,11 +15,6 @@
     <content type="text"></content>
   </entry>
   <entry>
-    <title></title>
-    <url>%2F2018%2F12%2F21%2Fintel-netcards%2F</url>
-    <content type="text"><![CDATA[title: NAS以及网卡date: 2018-12-21 16:31:10 tags: [Tools, Else]]]></content>
-  </entry>
-  <entry>
     <title><![CDATA[关于字符串的一些算法]]></title>
     <url>%2F2018%2F12%2F10%2Fstring-related-algorithms%2F</url>
     <content type="text"><![CDATA[最长回文子串 中心点扩散 复杂度 $\Theta(n^2)$ 中心点扩散优化 复杂度 $\Theta(n^2)$ 在中心点扩散的基础上进行中间是否有相同字符的判断，对随机数据具有很好的表现 Manacher算法 对称轴：在所有间隙插入没有出现过的相同字符 KMP 最大公共子串 DP 回文树 最长回文子序列]]></content>
