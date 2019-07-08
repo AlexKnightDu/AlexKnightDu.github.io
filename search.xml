@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[My youth]]></title>
+    <url>%2F2019%2F07%2F08%2Fmy-youth%2F</url>
+    <content type="text"><![CDATA[毕业了啊在大学宿舍的最后一个晚上了啊，仿佛昨天还是一起不断地聚餐不断地合照，今天就已经都失去了联络真的好伤感啊，甚至会去想自己想要的人生到底是什么，看着曾经一起年轻过热爱过努力过的人们就此别过，不知道再次见面是什么时候，也不知道以后再见面的时候彼此是否还能够认识大学真的是人生中最美好的时光吧，在最美好的年纪，带着最纯粹的感情，可以去尝试任何想做的事情 May I have your hug]]></content>
+      <tags>
+        <tag>Feeling</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[高斯混合模型与背景建模]]></title>
+    <url>%2F2019%2F07%2F04%2Fgmm-bg-subtraction%2F</url>
+    <content type="text"><![CDATA[“ Rather than explicitly modeling the values of allthe pixels as one particular type of distribution, wesimply model the values of a particular pixel as a mixture of Gaussians.” Chris Stauffer 与 W.E.L Grimson $^{[1]}$在1999年首先将高斯混合模型应用到了背景提取上，针对图像中的像素建立高斯混合模型，不同高斯模型分别对应着前景与背景。在此基础上匹配新出现的像素，根据匹配到的高斯模型来确定是前景还是背景。 卡尔曼滤波 Pfinder Reference:[1] Stauffer, Chris, and W. Eric L. Grimson. “Adaptive background mixture models for real-time tracking.” Proceedings. 1999 IEEE Computer Society Conference on Computer Vision and Pattern Recognition (Cat. No PR00149). Vol. 2. IEEE, 1999.[2] KaewTraKulPong, Pakorn, and Richard Bowden. “An improved adaptive background mixture model for real-time tracking with shadow detection.” Video-based surveillance systems. Springer, Boston, MA, 2002. 135-144.[3] Zivkovic, Zoran, and Ferdinand Van Der Heijden. “Efficient adaptive density estimation per image pixel for the task of background subtraction.” Pattern recognition letters 27.7 (2006): 773-780.]]></content>
+      <tags>
+        <tag>Note</tag>
+        <tag>CV</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[关于字符串与排序的一些算法]]></title>
     <url>%2F2018%2F12%2F24%2Fstring-sort-algorithms%2F</url>
     <content type="text"><![CDATA[“Alphabets” Key-indexed counting本质上是一种类似于基数排序（”radix”）的思想，与基数排序很相近，从而能够得到稳定的\Theta(N) LSD string sort]]></content>
