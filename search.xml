@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[关于C++代码规范]]></title>
+    <url>%2F2019%2F07%2F12%2Fc-style-guide%2F</url>
+    <content type="text"><![CDATA[又重新拾起C++，开始写C++才知道自己差了多少……]]></content>
+      <tags>
+        <tag>Coding</tag>
+        <tag>Note</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[My youth]]></title>
     <url>%2F2019%2F07%2F08%2Fmy-youth%2F</url>
     <content type="text"><![CDATA[毕业了啊在大学宿舍的最后一个晚上了啊，仿佛昨天还是一起不断地聚餐不断地合照，今天就已经都失去了联络真的好伤感啊，甚至会去想自己想要的人生到底是什么，看着曾经一起年轻过热爱过努力过的人们就此别过，不知道再次见面是什么时候，也不知道以后再见面的时候彼此是否还能够认识大学真的是人生中最美好的时光吧，在最美好的年纪，带着最纯粹的感情，可以去尝试任何想做的事情 May I have your hug]]></content>
@@ -101,7 +110,7 @@
     <content type="text"><![CDATA[Item 1C++ is big Item 20const &amp;相对于直接传值带来效率的提高避免多余的构造和析构避免slicing（对象分割），派生类不会由基类复制构造产生，故也保留了本身的性质对于内置类型以及STL迭代器和函数对象时，习惯上都被设计为传值 Item 21return object;stack / heap 避免调用构造函数 1234inline const Rational operator * (..)&#123; return Rational(..); // Just return a new object&#125; Item 3const常量 参数 返回值 成员函数bitwise constness / logical constness (mutable)casting away constness 123non_const&#123; const_cast&lt;&gt;(const())&#125; Item 2const, enum, inline &gt; #defineclass专属常量 1234class x&#123; static const int NumTurns; // Declaration&#125; const int x::NumTurns = 1; // Definition enum hack宏函数 —&gt; template inline 12345template&lt;typename T&gt;inline void callWithMax(const T&amp; s, const T&amp; b) &#123; f(a &gt; b ? a : b);&#125; Item 7多态基类 virtual ~()避免基类的析构无法把派生类的一些内容清除vptr Item 24Item 34接口继承 和 实现继承 Item 4Initialization成员初值列non-local static 单例模式 Item 5 &amp; Item 612345678class Empty&#123;public: Empty() &#123;...&#125; Empty(const Empty&amp; rhs) &#123;...&#125; ~Empty() &#123;...&#125; Empty&amp; operator=(const Empty&amp; rhs) &#123;...&#125;&#125; 在没有reference以及const等条件限制下，编译器会自动生成这些函数，但是如果不想这些生成，则应该通过private或单独设计一个base class等方式不去定义 12345678class Uncopyable&#123;protected: Uncopyable() &#123;&#125; ~Uncopyable() &#123;&#125;private: Uncopyable(const Uncopyable&amp;); Uncopyable&amp; operator=(const Uncopyable&amp;);&#125;; Item 8不要让析构函数抛出异常 Item 23愈多东西被封装，愈少人可以看到它，我们就有愈大的弹性去变化它。相同机能的member函数（可以访问private，enums，typedefs等）和non-member函数之间，non-member(non-friend)的封装性更好。当然non-member只是针对所在类而言，对其他类没有关系。自然的做法是放在同一个命名空间中。 Item 31编译依存关系声明式 定义式Handle classInterface class Item 18Item 36Item 54Item 13The C++ Programming Language 函数对象 灵巧指针 显式构造函数]]></content>
       <tags>
         <tag>Coding</tag>
-        <tag>Programming_language</tag>
+        <tag>Note</tag>
       </tags>
   </entry>
   <entry>
