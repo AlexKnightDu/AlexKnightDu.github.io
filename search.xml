@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[关于C++代码规范]]></title>
     <url>%2F2019%2F07%2F12%2Fc-style-guide%2F</url>
-    <content type="text"><![CDATA[又重新拾起C++，开始写C++才知道自己差了多少……]]></content>
+    <content type="text"><![CDATA[又重新拾起C++，开始写C++才知道自己差了多少……Based on Google C++ style guide 前置声明Google style给出的是“使用include，尽可能地避免使用前置声明”的建议，前置声明往往用在相互依赖的情况下，即A.h&lt;-&gt;B.h， 123456789101112131415161718192021222324252627282930313233// A.hclass B;class A&#123; B* b;public: A(void); virtual ~A(void);&#125;;//A.cpp#include "B.h"#include "A.h"A::A(void)&#123; b = new B;&#125;A::~A(void)&#123;&#125;// B.hclass A;class B&#123; A a;public: B(void); ~B(void);&#125;;// B.cpp#include "A.h"#include "B.h"B::B(void)&#123; a = New A;&#125;B::~B(void)&#123;&#125; 与include的直观区别如下所示： 123456// Forward declarationclass Date; class Task1 &#123; public: Date getData(); &#125;; 12345#include "Date.h" class Task2 &#123; public: Date getData(); &#125;; Google style给出的例子：极端情况下，用前置声明代替 includes 甚至都会暗暗地改变代码的含义： 123456789// b.h:struct B &#123;&#125;;struct D : B &#123;&#125;;// good_user.cc:#include "b.h"void f(B*);void f(void*);void test(D* x) &#123; f(x); &#125; // calls f(B*) 如果 #include 被 B 和 D 的前置声明替代， test() 就会调用 f(void*) .（实际上Google内部是有从[倾向于使用前置声明]到[倾向于使用#include]的转变的） 命名 #define \_\_\_H_ Class]]></content>
       <tags>
         <tag>Coding</tag>
         <tag>Note</tag>
