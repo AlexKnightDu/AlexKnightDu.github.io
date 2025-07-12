@@ -80,7 +80,7 @@ theme: cyanstyle
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://github.com/AlexKnightDu/AlexKnightDu.github.io.git 
+  repo: git@github.com:AlexKnightDu/AlexKnightDu.github.io.git
   branch: master
   
 search:
