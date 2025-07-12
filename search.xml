@@ -123,7 +123,7 @@
     <title>Step into that good night</title>
     <url>/2025/07/13/Step-into-that-good-night/</url>
     <content><![CDATA[<p>半夜看DPO与IL的时候，遇到一篇博客<a href="https://yam.gift/">yam.life</a>，看到了和当年自己折腾博客时候一样的背景和风格，便有了兴趣顺带一逛。然后发现博主好像有着很潇洒的人生，貌似从经管直接转行算法，看到了很多LLM的文章，但也有关于Python和C++的入门，以及一些育儿经和散文随笔，一路转过来有点魄力的，在xhs和抖音盛行的时代见到这么坚持写独立博客的也是很不容易</p>
-<p>可能过去一年经历了很多事情，深夜人有点容易emo，看到之后一瞬间有些触动，当初自己折腾博客时也想写各种东西但最终还是没有坚持下来，不知不觉要度过十年了啊</p>
+<p>可能过去一年经历了很多事情，深夜人有点容易emo，看到之后一瞬间有些触动，当初自己折腾博客时也想写各种东西但最终还是没有坚持下来，不知不觉要度过十年了</p>
 <p>尤其最近看到了各种人生的可能性，各种各样的优秀，但自己仿佛局限在了一个角落，每天还要思考种种现实的问题，曾经一直问人生要追求什么，多了一些人生经历之后好像也开始找到自己的答案，对生活还是要多一些热情啊</p>
 <p>比如开始重新拾起博客</p>
 <p>If u want, then u will</p>
@@ -131,29 +131,6 @@
 ]]></content>
       <tags>
         <tag>Life</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>关于VAE</title>
-    <url>/2018/09/30/VAE/</url>
-    <content><![CDATA[<p>Autoencoder可以看做一种前向网络的特殊情况，所以可以用相同的训练方法。但是不同于常用的前向网络，Autoencoder还可以通过recirculation来进行训练，即通过比较输入和生成结果的activation的来进行学习。  </p>
-<h4 id="Undercomplete-Autoencoder"><a href="#Undercomplete-Autoencoder" class="headerlink" title="Undercomplete Autoencoder"></a>Undercomplete Autoencoder</h4><p>对于 Undercomplete Autoencoder，学习过程可以简单地表示为:  </p>
-<script type="math/tex; mode=display">L(x,g(f(x)))</script><p>其中如果decider是线性并且L是均方误差，那么最终得到的子空间呢与PCA相同。<br>如果Hidden code具有的维度比输入数据要高，或者Autoencoder过于复杂，则学不到任何有用的信息。</p>
-<h4 id="Regularized-Autoencoder"><a href="#Regularized-Autoencoder" class="headerlink" title="Regularized Autoencoder"></a>Regularized Autoencoder</h4><p>相比于限制Autoencoder，Re</p>
-]]></content>
-      <tags>
-        <tag>Note</tag>
-        <tag>ML</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>在Blog选择上的尝试</title>
-    <url>/2018/09/30/blogs-choose/</url>
-    <content><![CDATA[<p>在反反复复折腾WordPress之后，终于还是换到了静态页面，也许后面还会尝试一下VuePress。临近大学结束了想想，真的觉得这么长时间都没有好好写一点什么真的是蛮遗憾的。</p>
-]]></content>
-      <tags>
-        <tag>Else</tag>
-        <tag>Tools</tag>
       </tags>
   </entry>
   <entry>
@@ -192,6 +169,16 @@
       </tags>
   </entry>
   <entry>
+    <title>在Blog选择上的尝试</title>
+    <url>/2018/09/30/blogs-choose/</url>
+    <content><![CDATA[<p>在反反复复折腾WordPress之后，终于还是换到了静态页面，也许后面还会尝试一下VuePress。临近大学结束了想想，真的觉得这么长时间都没有好好写一点什么真的是蛮遗憾的。</p>
+]]></content>
+      <tags>
+        <tag>Else</tag>
+        <tag>Tools</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>《计算机视觉：算法与应用》Note</title>
     <url>/2018/11/02/cv-algorithms-and-applications/</url>
     <content><![CDATA[<h2 id="Chapter-1"><a href="#Chapter-1" class="headerlink" title="Chapter 1"></a>Chapter 1</h2><img src="/2018/11/02/cv-algorithms-and-applications/cv_algo&app_ch1.png" class="">   
@@ -200,6 +187,19 @@
       <tags>
         <tag>Note</tag>
         <tag>CV</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>关于VAE</title>
+    <url>/2018/09/30/VAE/</url>
+    <content><![CDATA[<p>Autoencoder可以看做一种前向网络的特殊情况，所以可以用相同的训练方法。但是不同于常用的前向网络，Autoencoder还可以通过recirculation来进行训练，即通过比较输入和生成结果的activation的来进行学习。  </p>
+<h4 id="Undercomplete-Autoencoder"><a href="#Undercomplete-Autoencoder" class="headerlink" title="Undercomplete Autoencoder"></a>Undercomplete Autoencoder</h4><p>对于 Undercomplete Autoencoder，学习过程可以简单地表示为:  </p>
+<script type="math/tex; mode=display">L(x,g(f(x)))</script><p>其中如果decider是线性并且L是均方误差，那么最终得到的子空间呢与PCA相同。<br>如果Hidden code具有的维度比输入数据要高，或者Autoencoder过于复杂，则学不到任何有用的信息。</p>
+<h4 id="Regularized-Autoencoder"><a href="#Regularized-Autoencoder" class="headerlink" title="Regularized Autoencoder"></a>Regularized Autoencoder</h4><p>相比于限制Autoencoder，Re</p>
+]]></content>
+      <tags>
+        <tag>Note</tag>
+        <tag>ML</tag>
       </tags>
   </entry>
   <entry>
@@ -290,17 +290,6 @@
       </tags>
   </entry>
   <entry>
-    <title>关于拾音器和麦克风</title>
-    <url>/2018/10/09/pickup-and-microphone/</url>
-    <content><![CDATA[<p>感觉好像一直都是在烧，但是并没学到太多东西……</p>
-]]></content>
-      <tags>
-        <tag>Tools</tag>
-        <tag>Music</tag>
-        <tag>Guitar</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>关于拾音器和前级以及一些其他基础知识</title>
     <url>/2018/10/11/pickup-and-di/</url>
     <content><![CDATA[<p>感觉自己真的是挖了很多坑，买了很多东西，却真正深入地很少吧……   </p>
@@ -316,6 +305,17 @@
       <tags>
         <tag>Else</tag>
         <tag>Guitar</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>关于拾音器和麦克风</title>
+    <url>/2018/10/09/pickup-and-microphone/</url>
+    <content><![CDATA[<p>感觉好像一直都是在烧，但是并没学到太多东西……</p>
+]]></content>
+      <tags>
+        <tag>Tools</tag>
+        <tag>Guitar</tag>
+        <tag>Music</tag>
       </tags>
   </entry>
   <entry>
