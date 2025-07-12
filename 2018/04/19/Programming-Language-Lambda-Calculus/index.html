@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="Personal website of a stripling" />
+  
+
+  
+  <meta name="keywords" content="Code" />
+  
+  
+  
+  
+  
+  
+  <title>Programming Language - Lambda Calculus | Adventure</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="类型系统与Lambda演算    语义形式 操作语义通过定义一个简单的抽象机器来说明一个程序语言的行为。通过定义的语言来描述抽象机器的状态，通过转换函数来定义机器的行为，类似FA和PDA的感觉。在《计算的本质》里提到了大步语义和小步语义，一个是先递归算子表达式，另一个是迭代一步步规约。 指称语义采用更为抽象的语义：一个项的语义不仅是机器状态的序列，而且是某个数学对象，如一个数和一个函数。一个">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Programming Language - Lambda Calculus">
+<meta property="og:url" content="http://example.com/2018/04/19/Programming-Language-Lambda-Calculus/index.html">
+<meta property="og:site_name" content="Adventure">
+<meta property="og:description" content="类型系统与Lambda演算    语义形式 操作语义通过定义一个简单的抽象机器来说明一个程序语言的行为。通过定义的语言来描述抽象机器的状态，通过转换函数来定义机器的行为，类似FA和PDA的感觉。在《计算的本质》里提到了大步语义和小步语义，一个是先递归算子表达式，另一个是迭代一步步规约。 指称语义采用更为抽象的语义：一个项的语义不仅是机器状态的序列，而且是某个数学对象，如一个数和一个函数。一个">
+<meta property="og:locale">
+<meta property="article:published_time" content="2018-04-19T12:50:21.000Z">
+<meta property="article:modified_time" content="2025-07-12T22:07:05.631Z">
+<meta property="article:author" content="ALXD">
+<meta property="article:tag" content="Note">
+<meta property="article:tag" content="Programming Language">
+<meta property="article:tag" content="Lesson">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="Adventure" rel="home">Adventure</a>
+      </h1>
+      
+        <script type="text/javascript" src="http://api.hitokoto.us/rand?encode=js&charset=utf-8"></script>
+        <h2 class="site-description"><script>hitokoto();</script></h2>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">Home</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">Archives</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/tags">Tags</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/about">About</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-Programming-Language-Lambda-Calculus" class="post-Programming-Language-Lambda-Calculus post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      Programming Language - Lambda Calculus
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://example.com/2018/04/19/Programming-Language-Lambda-Calculus/" data-id="cmd0tcxjq0007zcn9evi65yup" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+         <center> <h2> 类型系统与Lambda演算 </h2> </center>
+
+<h3 id="语义形式"><a href="#语义形式" class="headerlink" title="语义形式"></a>语义形式</h3><ul>
+<li>操作语义通过定义一个简单的抽象机器来说明一个程序语言的行为。通过定义的语言来描述抽象机器的状态，通过转换函数来定义机器的行为，类似FA和PDA的感觉。<br>在《计算的本质》里提到了大步语义和小步语义，一个是先递归算子表达式，另一个是迭代一步步规约。</li>
+<li>指称语义采用更为抽象的语义：一个项的语义不仅是机器状态的序列，而且是某个数学对象，如一个数和一个函数。一个语言的指称语义是由一个语义域集合和将项映射到域中元素的解释函数所组成。<br>指称语义的一个主要优势在于它对求值的细节进行抽象，突出语言的本质概念。</li>
+<li>公理语义对于这些规则采用更为直接的处理方式：不是首先定义程序的行为（给出某种操作语义或指称语义），然后推导出这个定义的规则，而是公理方法用规则本身作为语言的定义。一个项的语义就是关于这个项我们能证明的东西。</li>
+</ul>
+<p>—</p>
+<h3 id="无类型Lambda演算"><a href="#无类型Lambda演算" class="headerlink" title="无类型Lambda演算"></a>无类型Lambda演算</h3><p><em>Pure lambda functions</em>  </p>
+<p>Lambda演算语法由3种项组成：</p>
+<ul>
+<li>变量x本身是一个项</li>
+<li>一个变量x在项$t_1$中的抽象，记为$\lambda x.t_1$</li>
+<li>一个项$t_1$应用于另一个项$t_2$时，记为$t_1 \ t_2$</li>
+</ul>
+<p>即 <script type="math/tex">t ::= \\  x \\ \lambda x.t \\ t \ t</script></p>
+<p>一个不含自由变量的项称为封闭项，封闭项也称为组合子。最简单的组合子，称为恒等函数：<br>$id = \lambda x.x; $</p>
+<h5 id="操作语义"><a href="#操作语义" class="headerlink" title="操作语义"></a>操作语义</h5><p>纯形式的Lambda演算没有内置的常量或原语算子（算数运算、条件子等）。项运算的唯一含义是将函数应用到本身是函数的参数：</p>
+<script type="math/tex; mode=display">(\lambda x.t_{12})t_2 \rightarrow [x \mapsto    t_2] t_{12}</script><p>根据上述规则重写的一个约式的操作称为beta归约。<br>归约的求值策略：</p>
+<ul>
+<li>全beta归约，任何时刻可以归约任何一个约式。</li>
+<li>规范顺序策略，最左边最外面首先归约。</li>
+<li>按名调用，在规范顺序基础上，不允许在抽象内部归约 （Haskell等）。</li>
+<li>按值调用，最外面的约式可以归约，且只有当该约式的右边已经归约为值时才能进行归约（大部分语言）。</li>
+</ul>
+<h5 id="多参数"><a href="#多参数" class="headerlink" title="多参数"></a>多参数</h5><p>Currying </p>
+<script type="math/tex; mode=display">f = \lambda (x,y).s \ \Rightarrow    \ f = \lambda x. \lambda y. s</script><h5 id="Church-bool"><a href="#Church-bool" class="headerlink" title="Church bool"></a>Church bool</h5><script type="math/tex; mode=display">tru = \lambda t. \lambda f. t</script><script type="math/tex; mode=display">fls = \lambda t. \lambda f. f</script><script type="math/tex; mode=display">test = \lambda l. \lambda m. \lambda n. l \ m \ n</script><h5 id="Pair"><a href="#Pair" class="headerlink" title="Pair"></a>Pair</h5><p>…</p>
+<h5 id="Recursion"><a href="#Recursion" class="headerlink" title="Recursion"></a>Recursion</h5><script type="math/tex; mode=display">omega = (\lambda x. x\ x)(\lambda x. x\ x)</script><script type="math/tex; mode=display">fix = \lambda f.\ (\lambda x.\ f\ (\lambda y. x\ x\ y))(\lambda x.\ f\ (\lambda y. x\ x\ y))</script><script type="math/tex; mode=display">(g = \lambda f)\ \ then\ \ (fix\ g)</script><h5 id="操作语义-1"><a href="#操作语义-1" class="headerlink" title="操作语义"></a>操作语义</h5><p>无类型Lambda运算 Call-by-value<br>语法： </p>
+<script type="math/tex; mode=display">t ::= \\  x \\ \lambda x.t \\ t \ t</script><script type="math/tex; mode=display">v ::= \lambda x.t</script><p>求值：</p>
+<script type="math/tex; mode=display">\frac{t_1 \rightarrow t_1'}{t_1 \ t_2 \rightarrow t_1'\ t_2}\ (E-APP1)</script><script type="math/tex; mode=display">\frac{t_2 \rightarrow t_2'}{v_1 \ t_2 \rightarrow v_1\ t_2'}\ (E-APP2)</script><script type="math/tex; mode=display">(\lambda x.t_{12})\ v_2 \rightarrow [x\mapsto v_2]\ t_{12}\ (E-APPABS)</script><h4 id="项的无名称表示"><a href="#项的无名称表示" class="headerlink" title="项的无名称表示"></a>项的无名称表示</h4><p>如何决定每个项的单一表示，特别是变量的出现如何表示。<br>Nicolas de Bruijin技术 —— 将变量出现直接指向它们的绑定器，而不是按名称引用它们。</p>
+<p>—</p>
+<h3 id="类型算术表达式"><a href="#类型算术表达式" class="headerlink" title="类型算术表达式"></a>类型算术表达式</h3><p>$t:T$<br>算术表达式的类型关系是项和类型之间的最小二元关系，满足类型规则中所有规则的实例。</p>
+<h5 id="安全性-进展-保持"><a href="#安全性-进展-保持" class="headerlink" title="安全性 = 进展 + 保持"></a>安全性 = 进展 + 保持</h5><ul>
+<li>进展：一个良类型项不会受阻，要么是一个值，要么根据求值规则做下一步</li>
+<li>保持：如果一个良类型项做进一步求值，则所得到的项也是良类型的</li>
+</ul>
+<p>—</p>
+<h3 id="简单类型的Lambda演算"><a href="#简单类型的Lambda演算" class="headerlink" title="简单类型的Lambda演算"></a>简单类型的Lambda演算</h3><p>一般地，借助于项的类型注释来检查类型的语言成为显式类型化语言，要求类型检查器自己推导或重构这个信息的语言称为隐式类型化语言。</p>
+<p>一个类型化上下文（也称一个类型环境）$\Gamma$是一个变量和它们类型的序列，并且逗号算子(comma)通过在右边加入一个新绑定来扩展$\Gamma$。   </p>
+<p>抽象类型规则的一般形式为：</p>
+<script type="math/tex; mode=display">\frac{\Gamma ,x:T_1 \vdash t_2:T_2}{\Gamma \vdash \lambda x:T_1.t_2:T_1 \rightarrow T_2}</script><p>其中前提比结论多一个假设。<br>变量的类型规则可以直接得到，一个变量可以有任何我们当前假定的类型：</p>
+<script type="math/tex; mode=display">\frac{x:T \in \Gamma}{\Gamma \vdash x:T}</script><p>应用类型规则：</p>
+<script type="math/tex; mode=display">\frac{\Gamma \vdash t_1: T_{11} \rightarrow T_{12} \ \  \Gamma \vdash t_2 : T_{11}}{\Gamma \vdash t_1 \ t_2 : T_{12}}</script><h3 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h3><h4 id="let-绑定"><a href="#let-绑定" class="headerlink" title="let 绑定"></a>let 绑定</h4><script type="math/tex; mode=display">let\ x = t_1\ in\ t_2\ \ \triangleq \ (\lambda x:T_1.t_2)\ t_1</script><h4 id="Environment-model"><a href="#Environment-model" class="headerlink" title="Environment model"></a>Environment model</h4><p>—<br><em>Reference</em>   </p>
+<ul>
+<li><em>&lt;&lt; Types and Programming Languages &gt;&gt;</em>   <em>Benjamin C. Pierce</em>  </li>
+<li><em>CS383 by Kenny Zhu</em>  </li>
+</ul>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2018/04/19/Programming-Language-Lambda-Calculus/">
+    <time datetime="2018-04-19T12:50:21.000Z" class="entry-date">
+        2018-04-19
+    </time>
+</a>
+    
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Lesson/" rel="tag">Lesson</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note/" rel="tag">Note</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Programming-Language/" rel="tag">Programming Language</a></li></ul>
+
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+        <span class="nav-previous"><a href="/2018/05/05/SVM/" rel="prev"><span class="meta-nav">←</span> 关于SVM</a></span>
+    
+    
+        <span class="nav-next"><a href="/2018/03/27/Make-the-change/" rel="next">Make the change <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-content">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CV/" rel="tag">CV</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Coding/" rel="tag">Coding</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Data-Structure/" rel="tag">Data Structure</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Else/" rel="tag">Else</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Feeling/" rel="tag">Feeling</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Guitar/" rel="tag">Guitar</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Lesson/" rel="tag">Lesson</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Life/" rel="tag">Life</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ML/" rel="tag">ML</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Music/" rel="tag">Music</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note/" rel="tag">Note</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Programming-Language/" rel="tag">Programming Language</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Programming-language/" rel="tag">Programming_language</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SLAM/" rel="tag">SLAM</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thoery/" rel="tag">Thoery</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tools/" rel="tag">Tools</a><span class="tag-list-count">6</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2025/07/13/Step-into-that-good-night/">Step into that good night</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/02/cv-algorithms-and-applications/">《计算机视觉：算法与应用》Note</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/27/effective-c/">《Effective C++》Note</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/24/wireshark/">关于wireshark</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/11/pickup-and-di/">关于拾音器和前级以及一些其他基础知识</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2025 ALXD
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="Personal website of a stripling" />
+  
+
+  
+  <meta name="keywords" content="Code" />
+  
+  
+  
+  
+  
+  
+  <title>《Effective C++》Note | Adventure</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Item 1C++ is big Item 20const &amp;相对于直接传值带来效率的提高避免多余的构造和析构避免slicing（对象分割），派生类不会由基类复制构造产生，故也保留了本身的性质对于内置类型以及STL迭代器和函数对象时，习惯上都被设计为传值 Item 21return object;stack &#x2F; heap 避免调用构造函数 1234inline const Rational">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《Effective C++》Note">
+<meta property="og:url" content="http://example.com/2018/10/27/effective-c/index.html">
+<meta property="og:site_name" content="Adventure">
+<meta property="og:description" content="Item 1C++ is big Item 20const &amp;相对于直接传值带来效率的提高避免多余的构造和析构避免slicing（对象分割），派生类不会由基类复制构造产生，故也保留了本身的性质对于内置类型以及STL迭代器和函数对象时，习惯上都被设计为传值 Item 21return object;stack &#x2F; heap 避免调用构造函数 1234inline const Rational">
+<meta property="og:locale">
+<meta property="article:published_time" content="2018-10-27T08:02:00.000Z">
+<meta property="article:modified_time" content="2025-07-12T22:07:05.632Z">
+<meta property="article:author" content="ALXD">
+<meta property="article:tag" content="Coding">
+<meta property="article:tag" content="Programming_language">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="Adventure" rel="home">Adventure</a>
+      </h1>
+      
+        <script type="text/javascript" src="http://api.hitokoto.us/rand?encode=js&charset=utf-8"></script>
+        <h2 class="site-description"><script>hitokoto();</script></h2>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">Home</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">Archives</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/tags">Tags</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/about">About</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-effective-c" class="post-effective-c post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      《Effective C++》Note
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://example.com/2018/10/27/effective-c/" data-id="cmd0tcxjs000jzcn9f3855t4j" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <h4 id="Item-1"><a href="#Item-1" class="headerlink" title="Item 1"></a>Item 1</h4><p>C++ is big</p>
+<h4 id="Item-20"><a href="#Item-20" class="headerlink" title="Item 20"></a>Item 20</h4><p>const &amp;<br>相对于直接传值带来效率的提高<br>避免多余的构造和析构<br>避免slicing（对象分割），派生类不会由基类复制构造产生，故也保留了本身的性质<br>对于内置类型以及STL迭代器和函数对象时，习惯上都被设计为传值</p>
+<h4 id="Item-21"><a href="#Item-21" class="headerlink" title="Item 21"></a>Item 21</h4><p>return object;<br>stack / heap 避免调用构造函数</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">inline</span> <span class="type">const</span> Rational <span class="keyword">operator</span> * (..)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">Rational</span>(..); <span class="comment">// Just return a new object</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Item-3"><a href="#Item-3" class="headerlink" title="Item 3"></a>Item 3</h4><p>const<br>常量 参数 返回值 成员函数<br>bitwise constness / logical constness (mutable)<br>casting away constness </p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">non_const&#123;</span><br><span class="line">	<span class="keyword">const_cast</span>&lt;&gt;(<span class="built_in">const</span>())</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Item-2"><a href="#Item-2" class="headerlink" title="Item 2"></a>Item 2</h4><p>const, enum, inline &gt; #define<br>class专属常量 </p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">x</span>&#123;</span><br><span class="line">	<span class="type">static</span> <span class="type">const</span> <span class="type">int</span> NumTurns; <span class="comment">// Declaration</span></span><br><span class="line">&#125; </span><br><span class="line"><span class="type">const</span> <span class="type">int</span> x::NumTurns = <span class="number">1</span>; <span class="comment">// Definition</span></span><br></pre></td></tr></table></figure>
+<p>enum hack<br>宏函数 —&gt; template inline</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">callWithMax</span><span class="params">(<span class="type">const</span> T&amp; s, <span class="type">const</span> T&amp; b)</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">f</span>(a &gt; b ? a : b);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Item-7"><a href="#Item-7" class="headerlink" title="Item 7"></a>Item 7</h4><p>多态基类 virtual ~()<br>避免基类的析构无法把派生类的一些内容清除<br>vptr</p>
+<h4 id="Item-24"><a href="#Item-24" class="headerlink" title="Item 24"></a>Item 24</h4><h4 id="Item-34"><a href="#Item-34" class="headerlink" title="Item 34"></a>Item 34</h4><p>接口继承 和 实现继承</p>
+<h4 id="Item-4"><a href="#Item-4" class="headerlink" title="Item 4"></a>Item 4</h4><p>Initialization<br>成员初值列<br>non-local static 单例模式</p>
+<h4 id="Item-5-amp-Item-6"><a href="#Item-5-amp-Item-6" class="headerlink" title="Item 5 &amp; Item 6"></a>Item 5 &amp; Item 6</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Empty</span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="built_in">Empty</span>() &#123;...&#125;</span><br><span class="line">	<span class="built_in">Empty</span>(<span class="type">const</span> Empty&amp; rhs) &#123;...&#125;</span><br><span class="line">	~<span class="built_in">Empty</span>() &#123;...&#125;</span><br><span class="line">	</span><br><span class="line">	Empty&amp; <span class="keyword">operator</span>=(<span class="type">const</span> Empty&amp; rhs) &#123;...&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在没有reference以及const等条件限制下，编译器会自动生成这些函数，但是如果不想这些生成，则应该通过private或单独设计一个base class等方式不去定义</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Uncopyable</span>&#123;</span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line">	<span class="built_in">Uncopyable</span>() &#123;&#125;</span><br><span class="line">	~<span class="built_in">Uncopyable</span>() &#123;&#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="built_in">Uncopyable</span>(<span class="type">const</span> Uncopyable&amp;);</span><br><span class="line">	Uncopyable&amp; <span class="keyword">operator</span>=(<span class="type">const</span> Uncopyable&amp;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="Item-8"><a href="#Item-8" class="headerlink" title="Item 8"></a>Item 8</h4><p>不要让析构函数抛出异常</p>
+<h2 id="The-C-Programming-Language"><a href="#The-C-Programming-Language" class="headerlink" title="The C++ Programming Language"></a>The C++ Programming Language</h2><ul>
+<li>函数对象</li>
+<li>灵巧指针</li>
+<li>显式构造函数</li>
+</ul>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2018/10/27/effective-c/">
+    <time datetime="2018-10-27T08:02:00.000Z" class="entry-date">
+        2018-10-27
+    </time>
+</a>
+    
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Coding/" rel="tag">Coding</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Programming-language/" rel="tag">Programming_language</a></li></ul>
+
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+        <span class="nav-previous"><a href="/2018/11/02/cv-algorithms-and-applications/" rel="prev"><span class="meta-nav">←</span> 《计算机视觉：算法与应用》Note</a></span>
+    
+    
+        <span class="nav-next"><a href="/2018/10/24/wireshark/" rel="next">关于wireshark <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-content">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CV/" rel="tag">CV</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Coding/" rel="tag">Coding</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Data-Structure/" rel="tag">Data Structure</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Else/" rel="tag">Else</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Feeling/" rel="tag">Feeling</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Guitar/" rel="tag">Guitar</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Lesson/" rel="tag">Lesson</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Life/" rel="tag">Life</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ML/" rel="tag">ML</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Music/" rel="tag">Music</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note/" rel="tag">Note</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Programming-Language/" rel="tag">Programming Language</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Programming-language/" rel="tag">Programming_language</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SLAM/" rel="tag">SLAM</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thoery/" rel="tag">Thoery</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tools/" rel="tag">Tools</a><span class="tag-list-count">6</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2025/07/13/Step-into-that-good-night/">Step into that good night</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/02/cv-algorithms-and-applications/">《计算机视觉：算法与应用》Note</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/27/effective-c/">《Effective C++》Note</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/24/wireshark/">关于wireshark</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/11/pickup-and-di/">关于拾音器和前级以及一些其他基础知识</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2025 ALXD
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>

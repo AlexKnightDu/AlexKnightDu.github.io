@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="Personal website of a stripling" />
+  
+
+  
+  <meta name="keywords" content="Code" />
+  
+  
+  
+  
+  
+  
+  <title>ffmpeg入门的一点尝试 | Adventure</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="慢慢地，也开始平淡于现实了啊……      FFmpeg 即 Fast Forward Moving Pictures Experts Group，可以说是一个非常强大的音视频编解码框架了，主要包含以下模块：  AVFormat：格式封装模块 AVCodec：编解码模块 AVFilter：滤镜模块 swscale：视频图像转换计算模块，图像缩放和像素格式转换 swresample：音频转换计算模块">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ffmpeg入门的一点尝试">
+<meta property="og:url" content="http://example.com/2018/10/08/ffmpeg/index.html">
+<meta property="og:site_name" content="Adventure">
+<meta property="og:description" content="慢慢地，也开始平淡于现实了啊……      FFmpeg 即 Fast Forward Moving Pictures Experts Group，可以说是一个非常强大的音视频编解码框架了，主要包含以下模块：  AVFormat：格式封装模块 AVCodec：编解码模块 AVFilter：滤镜模块 swscale：视频图像转换计算模块，图像缩放和像素格式转换 swresample：音频转换计算模块">
+<meta property="og:locale">
+<meta property="article:published_time" content="2018-10-08T12:35:03.000Z">
+<meta property="article:modified_time" content="2025-07-12T22:07:05.632Z">
+<meta property="article:author" content="ALXD">
+<meta property="article:tag" content="Tools">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="Adventure" rel="home">Adventure</a>
+      </h1>
+      
+        <script type="text/javascript" src="http://api.hitokoto.us/rand?encode=js&charset=utf-8"></script>
+        <h2 class="site-description"><script>hitokoto();</script></h2>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">Home</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">Archives</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/tags">Tags</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/about">About</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-ffmpeg" class="post-ffmpeg post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      ffmpeg入门的一点尝试
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://example.com/2018/10/08/ffmpeg/" data-id="cmd0tcxjs000lzcn9714jaaz2" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <p>慢慢地，也开始平淡于现实了啊……     </p>
+<p>FFmpeg 即 Fast Forward Moving Pictures Experts Group，可以说是一个非常强大的音视频编解码框架了，主要包含以下模块：</p>
+<ul>
+<li>AVFormat：格式封装模块</li>
+<li>AVCodec：编解码模块</li>
+<li>AVFilter：滤镜模块</li>
+<li>swscale：视频图像转换计算模块，图像缩放和像素格式转换</li>
+<li>swresample：音频转换计算模块，允许操作音频采样、音频通道布局转换和布局调整等</li>
+</ul>
+<p>相应的也会有编译好的工具：</p>
+<ul>
+<li>ffmpeg</li>
+<li>ffplay</li>
+<li>ffprobe：分析器</li>
+</ul>
+<p>一些基本概念提一下：</p>
+<ul>
+<li>封装格式：把视频和音频放到一个文件中，所以也可以认为是文件格式</li>
+<li>视频格式：视频编码格式</li>
+<li>视频码率：期望的压缩后视频的大小，用平均每秒多少bit来衡量一个视频大小</li>
+</ul>
+<p>FFmpeg的功能主要分为媒体格式转封装、音视频编解码、传输协议转换、支持Filter处理等。</p>
+<h3 id="FFmpeg-转封装"><a href="#FFmpeg-转封装" class="headerlink" title="FFmpeg 转封装"></a>FFmpeg 转封装</h3><p>首先介绍一下几个格式：</p>
+<ul>
+<li>MP4：<ul>
+<li>MP4 文件有许多个Box与FullBox组成</li>
+<li>每个Box由Header和Data两部分组成</li>
+<li>FullBox是Box的扩展，其在Box的基础上，在Header中增加8位version标志和24位的flags标志</li>
+<li>Header包含了整个Box的长度的大小和类型</li>
+<li>Data位Box的实际数据，可以是纯数据，也可以是更多的子Box</li>
+<li>当一个Box中的Data是一系列的子Box时，这个Box又可以称为Container Box</li>
+</ul>
+</li>
+<li>FLV：FLV分为两部分，一部分为FLV文件头，一部分为FLV文件内容  </li>
+</ul>
+<p>。。。未完待续</p>
+<h3 id="FFmpeg-转码"><a href="#FFmpeg-转码" class="headerlink" title="FFmpeg 转码"></a>FFmpeg 转码</h3><h3 id="FFmpeg-流媒体"><a href="#FFmpeg-流媒体" class="headerlink" title="FFmpeg 流媒体"></a>FFmpeg 流媒体</h3><h3 id="FFmpeg-滤镜"><a href="#FFmpeg-滤镜" class="headerlink" title="FFmpeg 滤镜"></a>FFmpeg 滤镜</h3><p>读着读着越来越觉得，好像要做的事重点不是FFmpeg能解决的QAQ</p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2018/10/08/ffmpeg/">
+    <time datetime="2018-10-08T12:35:03.000Z" class="entry-date">
+        2018-10-08
+    </time>
+</a>
+    
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tools/" rel="tag">Tools</a></li></ul>
+
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+        <span class="nav-previous"><a href="/2018/10/09/pickup-and-microphone/" rel="prev"><span class="meta-nav">←</span> 关于拾音器和麦克风</a></span>
+    
+    
+        <span class="nav-next"><a href="/2018/10/04/routers-choose/" rel="next">关于挑选路由器 <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-content">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CV/" rel="tag">CV</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Coding/" rel="tag">Coding</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Data-Structure/" rel="tag">Data Structure</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Else/" rel="tag">Else</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Feeling/" rel="tag">Feeling</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Guitar/" rel="tag">Guitar</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Lesson/" rel="tag">Lesson</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Life/" rel="tag">Life</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ML/" rel="tag">ML</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Music/" rel="tag">Music</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note/" rel="tag">Note</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Programming-Language/" rel="tag">Programming Language</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Programming-language/" rel="tag">Programming_language</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SLAM/" rel="tag">SLAM</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thoery/" rel="tag">Thoery</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tools/" rel="tag">Tools</a><span class="tag-list-count">6</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2025/07/13/Step-into-that-good-night/">Step into that good night</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/02/cv-algorithms-and-applications/">《计算机视觉：算法与应用》Note</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/27/effective-c/">《Effective C++》Note</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/24/wireshark/">关于wireshark</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/11/pickup-and-di/">关于拾音器和前级以及一些其他基础知识</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2025 ALXD
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>关于C++11</title>
+    <url>/2018/09/10/C++%2011/</url>
+    <content><![CDATA[<h1 id="C-11"><a href="#C-11" class="headerlink" title="C++ 11"></a>C++ 11</h1><ul>
+<li>C++标准委员会 WG21 </li>
+<li>在2003年WG21提交了一份技术勘误表，故C++98/03</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Coding</tag>
+        <tag>Note</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>图论</title>
+    <url>/2018/09/20/Introduction_to_graph_theory/</url>
+    <content><![CDATA[<h1 id="Introduction-to-Graph-Theory"><a href="#Introduction-to-Graph-Theory" class="headerlink" title=" Introduction to Graph Theory "></a><center> Introduction to Graph Theory </center></h1> <center> 图论 </center>
+ <center> *Douglas B. West* </center>
+
+
+<h2 id="Chapter-1"><a href="#Chapter-1" class="headerlink" title="Chapter 1"></a>Chapter 1</h2><ul>
+<li>团是图中两两相邻的顶点构成的集合。</li>
+<li>独立集（或稳定集）是图中由两两不相邻的顶点构成的集合。</li>
+<li>图G称为二分图，如果V(G)是两个互不相交的独立集（可以是空集）的并集，这两个集合称为图G的部集。</li>
+<li>图G的色数, 记为 <script type="math/tex">\chi(G)</script>，是使邻接顶点获得不同颜色所需颜色的最小数目，如果V(G)可以被表示为k（可以为空）个独立集的并，则图G是k-分的。</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Note</tag>
+        <tag>Thoery</tag>
+        <tag>Algorithm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Make the change</title>
+    <url>/2018/03/27/Make-the-change/</url>
+    <content><![CDATA[<p>想了很久，最终决定还是不投了吧，可能会因此错过很多机会吧，但觉得现在的自己，真的很多很多地方都需要成长吧，</p>
+<p>仰望星空，脚踏实地</p>
+<img src="/2018/03/27/Make-the-change/SJTU.jpeg" class="" title="Take it a adventure">
+<p><strong>想做，那就从现在开始，拼尽全力</strong></p>
+<p>一直在想，我要一个怎样的大学，经历了很多，才开始明白，这就是我的答案&lt;/strong&gt;</p>
+<p><strong>学更多的知识，看更多的书</strong></p>
+<p><strong>认识更多的人，去更多的地方</strong></p>
+<p><strong>尝试从未做过的事情，经历纯粹而又美好的感情</strong></p>
+<img src="/2018/03/27/Make-the-change/myself.png" class="" title="Fearless">
+<p>趁着还年轻，趁着一无所有，也许很多事情，现在不去做，以后就再也不可能了</p>
+]]></content>
+      <tags>
+        <tag>Feeling</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Programming Language - Lambda Calculus</title>
+    <url>/2018/04/19/Programming-Language-Lambda-Calculus/</url>
+    <content><![CDATA[ <center> <h2> 类型系统与Lambda演算 </h2> </center>
+
+<h3 id="语义形式"><a href="#语义形式" class="headerlink" title="语义形式"></a>语义形式</h3><ul>
+<li>操作语义通过定义一个简单的抽象机器来说明一个程序语言的行为。通过定义的语言来描述抽象机器的状态，通过转换函数来定义机器的行为，类似FA和PDA的感觉。<br>在《计算的本质》里提到了大步语义和小步语义，一个是先递归算子表达式，另一个是迭代一步步规约。</li>
+<li>指称语义采用更为抽象的语义：一个项的语义不仅是机器状态的序列，而且是某个数学对象，如一个数和一个函数。一个语言的指称语义是由一个语义域集合和将项映射到域中元素的解释函数所组成。<br>指称语义的一个主要优势在于它对求值的细节进行抽象，突出语言的本质概念。</li>
+<li>公理语义对于这些规则采用更为直接的处理方式：不是首先定义程序的行为（给出某种操作语义或指称语义），然后推导出这个定义的规则，而是公理方法用规则本身作为语言的定义。一个项的语义就是关于这个项我们能证明的东西。</li>
+</ul>
+<p>—</p>
+<h3 id="无类型Lambda演算"><a href="#无类型Lambda演算" class="headerlink" title="无类型Lambda演算"></a>无类型Lambda演算</h3><p><em>Pure lambda functions</em>  </p>
+<p>Lambda演算语法由3种项组成：</p>
+<ul>
+<li>变量x本身是一个项</li>
+<li>一个变量x在项$t_1$中的抽象，记为$\lambda x.t_1$</li>
+<li>一个项$t_1$应用于另一个项$t_2$时，记为$t_1 \ t_2$</li>
+</ul>
+<p>即 <script type="math/tex">t ::= \\  x \\ \lambda x.t \\ t \ t</script></p>
+<p>一个不含自由变量的项称为封闭项，封闭项也称为组合子。最简单的组合子，称为恒等函数：<br>$id = \lambda x.x; $</p>
+<h5 id="操作语义"><a href="#操作语义" class="headerlink" title="操作语义"></a>操作语义</h5><p>纯形式的Lambda演算没有内置的常量或原语算子（算数运算、条件子等）。项运算的唯一含义是将函数应用到本身是函数的参数：</p>
+<script type="math/tex; mode=display">(\lambda x.t_{12})t_2 \rightarrow [x \mapsto    t_2] t_{12}</script><p>根据上述规则重写的一个约式的操作称为beta归约。<br>归约的求值策略：</p>
+<ul>
+<li>全beta归约，任何时刻可以归约任何一个约式。</li>
+<li>规范顺序策略，最左边最外面首先归约。</li>
+<li>按名调用，在规范顺序基础上，不允许在抽象内部归约 （Haskell等）。</li>
+<li>按值调用，最外面的约式可以归约，且只有当该约式的右边已经归约为值时才能进行归约（大部分语言）。</li>
+</ul>
+<h5 id="多参数"><a href="#多参数" class="headerlink" title="多参数"></a>多参数</h5><p>Currying </p>
+<script type="math/tex; mode=display">f = \lambda (x,y).s \ \Rightarrow    \ f = \lambda x. \lambda y. s</script><h5 id="Church-bool"><a href="#Church-bool" class="headerlink" title="Church bool"></a>Church bool</h5><script type="math/tex; mode=display">tru = \lambda t. \lambda f. t</script><script type="math/tex; mode=display">fls = \lambda t. \lambda f. f</script><script type="math/tex; mode=display">test = \lambda l. \lambda m. \lambda n. l \ m \ n</script><h5 id="Pair"><a href="#Pair" class="headerlink" title="Pair"></a>Pair</h5><p>…</p>
+<h5 id="Recursion"><a href="#Recursion" class="headerlink" title="Recursion"></a>Recursion</h5><script type="math/tex; mode=display">omega = (\lambda x. x\ x)(\lambda x. x\ x)</script><script type="math/tex; mode=display">fix = \lambda f.\ (\lambda x.\ f\ (\lambda y. x\ x\ y))(\lambda x.\ f\ (\lambda y. x\ x\ y))</script><script type="math/tex; mode=display">(g = \lambda f)\ \ then\ \ (fix\ g)</script><h5 id="操作语义-1"><a href="#操作语义-1" class="headerlink" title="操作语义"></a>操作语义</h5><p>无类型Lambda运算 Call-by-value<br>语法： </p>
+<script type="math/tex; mode=display">t ::= \\  x \\ \lambda x.t \\ t \ t</script><script type="math/tex; mode=display">v ::= \lambda x.t</script><p>求值：</p>
+<script type="math/tex; mode=display">\frac{t_1 \rightarrow t_1'}{t_1 \ t_2 \rightarrow t_1'\ t_2}\ (E-APP1)</script><script type="math/tex; mode=display">\frac{t_2 \rightarrow t_2'}{v_1 \ t_2 \rightarrow v_1\ t_2'}\ (E-APP2)</script><script type="math/tex; mode=display">(\lambda x.t_{12})\ v_2 \rightarrow [x\mapsto v_2]\ t_{12}\ (E-APPABS)</script><h4 id="项的无名称表示"><a href="#项的无名称表示" class="headerlink" title="项的无名称表示"></a>项的无名称表示</h4><p>如何决定每个项的单一表示，特别是变量的出现如何表示。<br>Nicolas de Bruijin技术 —— 将变量出现直接指向它们的绑定器，而不是按名称引用它们。</p>
+<p>—</p>
+<h3 id="类型算术表达式"><a href="#类型算术表达式" class="headerlink" title="类型算术表达式"></a>类型算术表达式</h3><p>$t:T$<br>算术表达式的类型关系是项和类型之间的最小二元关系，满足类型规则中所有规则的实例。</p>
+<h5 id="安全性-进展-保持"><a href="#安全性-进展-保持" class="headerlink" title="安全性 = 进展 + 保持"></a>安全性 = 进展 + 保持</h5><ul>
+<li>进展：一个良类型项不会受阻，要么是一个值，要么根据求值规则做下一步</li>
+<li>保持：如果一个良类型项做进一步求值，则所得到的项也是良类型的</li>
+</ul>
+<p>—</p>
+<h3 id="简单类型的Lambda演算"><a href="#简单类型的Lambda演算" class="headerlink" title="简单类型的Lambda演算"></a>简单类型的Lambda演算</h3><p>一般地，借助于项的类型注释来检查类型的语言成为显式类型化语言，要求类型检查器自己推导或重构这个信息的语言称为隐式类型化语言。</p>
+<p>一个类型化上下文（也称一个类型环境）$\Gamma$是一个变量和它们类型的序列，并且逗号算子(comma)通过在右边加入一个新绑定来扩展$\Gamma$。   </p>
+<p>抽象类型规则的一般形式为：</p>
+<script type="math/tex; mode=display">\frac{\Gamma ,x:T_1 \vdash t_2:T_2}{\Gamma \vdash \lambda x:T_1.t_2:T_1 \rightarrow T_2}</script><p>其中前提比结论多一个假设。<br>变量的类型规则可以直接得到，一个变量可以有任何我们当前假定的类型：</p>
+<script type="math/tex; mode=display">\frac{x:T \in \Gamma}{\Gamma \vdash x:T}</script><p>应用类型规则：</p>
+<script type="math/tex; mode=display">\frac{\Gamma \vdash t_1: T_{11} \rightarrow T_{12} \ \  \Gamma \vdash t_2 : T_{11}}{\Gamma \vdash t_1 \ t_2 : T_{12}}</script><h3 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h3><h4 id="let-绑定"><a href="#let-绑定" class="headerlink" title="let 绑定"></a>let 绑定</h4><script type="math/tex; mode=display">let\ x = t_1\ in\ t_2\ \ \triangleq \ (\lambda x:T_1.t_2)\ t_1</script><h4 id="Environment-model"><a href="#Environment-model" class="headerlink" title="Environment model"></a>Environment model</h4><p>—<br><em>Reference</em>   </p>
+<ul>
+<li><em>&lt;&lt; Types and Programming Languages &gt;&gt;</em>   <em>Benjamin C. Pierce</em>  </li>
+<li><em>CS383 by Kenny Zhu</em>  </li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Note</tag>
+        <tag>Programming Language</tag>
+        <tag>Lesson</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>关于SVM</title>
+    <url>/2018/05/05/SVM/</url>
+    <content><![CDATA[<center> <h2> Sparse Kernel Machine </h2> </center>
+
+<h3 id="Maximum-Margin-Classifier"><a href="#Maximum-Margin-Classifier" class="headerlink" title="Maximum Margin Classifier"></a>Maximum Margin Classifier</h3>]]></content>
+      <tags>
+        <tag>Note</tag>
+        <tag>ML</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Step into that good night</title>
+    <url>/2025/07/13/Step-into-that-good-night/</url>
+    <content><![CDATA[<p>半夜看DPO与IL的时候，遇到一篇博客<a href="https://yam.gift/">yam.life</a>，看到了和当年自己折腾博客时候一样的背景和风格，便有了兴趣顺带一逛。然后发现博主好像有着很潇洒的人生，貌似从经管直接转行算法，看到了很多LLM的文章，但也有关于Python和C++的入门，以及一些育儿经和散文随笔，一路转过来有点魄力的，在xhs和抖音盛行的时代见到这么坚持写独立博客的也是很不容易</p>
+<p>可能过去一年经历了很多事情，深夜人有点容易emo，看到之后一瞬间有些触动，当初自己折腾博客时也想写各种东西但最终还是没有坚持下来，不知不觉要度过十年了啊</p>
+<p>尤其最近看到了各种人生的可能性，各种各样的优秀，但自己仿佛局限在了一个角落，每天还要思考种种现实的问题，曾经一直问人生要追求什么，多了一些人生经历之后好像也开始找到自己的答案，对生活还是要多一些热情啊</p>
+<p>比如开始重新拾起博客</p>
+<p>If u want, then u will</p>
+<img src="/2025/07/13/Step-into-that-good-night/Little.jpg" class="">   
+]]></content>
+      <tags>
+        <tag>Life</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>关于VAE</title>
+    <url>/2018/09/30/VAE/</url>
+    <content><![CDATA[<p>Autoencoder可以看做一种前向网络的特殊情况，所以可以用相同的训练方法。但是不同于常用的前向网络，Autoencoder还可以通过recirculation来进行训练，即通过比较输入和生成结果的activation的来进行学习。  </p>
+<h4 id="Undercomplete-Autoencoder"><a href="#Undercomplete-Autoencoder" class="headerlink" title="Undercomplete Autoencoder"></a>Undercomplete Autoencoder</h4><p>对于 Undercomplete Autoencoder，学习过程可以简单地表示为:  </p>
+<script type="math/tex; mode=display">L(x,g(f(x)))</script><p>其中如果decider是线性并且L是均方误差，那么最终得到的子空间呢与PCA相同。<br>如果Hidden code具有的维度比输入数据要高，或者Autoencoder过于复杂，则学不到任何有用的信息。</p>
+<h4 id="Regularized-Autoencoder"><a href="#Regularized-Autoencoder" class="headerlink" title="Regularized Autoencoder"></a>Regularized Autoencoder</h4><p>相比于限制Autoencoder，Re</p>
+]]></content>
+      <tags>
+        <tag>Note</tag>
+        <tag>ML</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>在Blog选择上的尝试</title>
+    <url>/2018/09/30/blogs-choose/</url>
+    <content><![CDATA[<p>在反反复复折腾WordPress之后，终于还是换到了静态页面，也许后面还会尝试一下VuePress。临近大学结束了想想，真的觉得这么长时间都没有好好写一点什么真的是蛮遗憾的。</p>
+]]></content>
+      <tags>
+        <tag>Else</tag>
+        <tag>Tools</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>关于数据结构中的一些Tree</title>
+    <url>/2018/10/09/algorithm-trees/</url>
+    <content><![CDATA[<p>最近涉及到了平衡树相关的内容，觉得自己之前零零散散的看了很多东西，隐约觉得这些算法不应该是这么零碎的感觉，所以尝试着整理一下……  </p>
+<p>从二叉树开始讲起<br>作为搜索的结构化结果</p>
+<h4 id="B树"><a href="#B树" class="headerlink" title="B树"></a>B树</h4><p>在正式说平衡树之前，先说一下B树，从而引出后面的2-3-4树</p>
+<h4 id="红黑树"><a href="#红黑树" class="headerlink" title="红黑树"></a>红黑树</h4><p>平衡树的一个重要实现方式，由于相较于AVL树存储信息更少（可以通过一些trick一样？）所以在工业界中大量使用，std的map，set，Linux的进程调度等。<br>红黑树要求：</p>
+<ul>
+<li>每个节点是红色的，或是黑色的</li>
+<li>根节点是黑色的</li>
+<li>每个叶子节点是黑色的</li>
+<li>如果一个节点是红色的，则它的两个子节点都是黑色的</li>
+<li>对每个节点，从该节点到其所有后代叶子节点的简单路径上，均包含相同数目的黑色节点</li>
+</ul>
+<p>红黑树的平衡由下面的引理来保证：</p>
+<ul>
+<li>一颗有n个内部节点的红黑树的高度至多为 <script type="math/tex">2\lg(n+1)</script></li>
+<li>证明：首先证明以任一节点x为根的子树中至少包含 <script type="math/tex">2^{bh(x)} - 1</script>个内部节点（递推）。然后即有 <script type="math/tex">n \geq 2^{h/2} - 1</script>， 整理即 <script type="math/tex">h \leq 2 \lg(n + 1)</script>。</li>
+</ul>
+<h4 id="AVL树"><a href="#AVL树" class="headerlink" title="AVL树"></a>AVL树</h4><h4 id="Treap"><a href="#Treap" class="headerlink" title="Treap"></a>Treap</h4><h4 id="非旋转Treap-amp-持久化Treap"><a href="#非旋转Treap-amp-持久化Treap" class="headerlink" title="非旋转Treap&amp;持久化Treap"></a>非旋转Treap&amp;持久化Treap</h4><p>可持久化Treap与Treap的区别在于哪里？<br>维持平衡的方式用Split和Merge，而Treap使用rotate<br>Other：可以分裂(Split)和合并(Merge)</p>
+<h4 id="主席树"><a href="#主席树" class="headerlink" title="主席树"></a>主席树</h4><p>函数式（可持久化）线段树</p>
+<h4 id="笛卡尔树"><a href="#笛卡尔树" class="headerlink" title="笛卡尔树"></a>笛卡尔树</h4><p>建树很快，后续用Treap操作插入<br>每个节点有2个关键字key、value。从key的角度看，这是一颗二叉搜索树，每个节点的左子树的key都比它小，右子树都比它大；从value的角度看，这是一个堆。</p>
+<p>题意：以字符串为关键字key，数字为关键字value，构造一个二叉搜索大堆，最后按要求中序遍历 笛卡尔树的构造。</p>
+<p>建立笛卡尔树的O（n）的算法：</p>
+<p>　　从别人博客里拷贝过来的，这里给出链接：<a href="http://hi.baidu.com/yy17yy/item/cd4edcf963944f6a3d148553">http://hi.baidu.com/yy17yy/item/cd4edcf963944f6a3d148553</a></p>
+<p>　　首先按key关键字进行排序，这样建树的时候从左下角往右下角建。根据定义可知，每个数组的末尾节点必是位于树的最右路上且不可能有右孩子。 在建立树的过程中每次加入一个元素A[X]，则该节点一定位于此时的树的最右路上且无右孩子。所以只要沿着A[X-1]节点向上走， 找到比A[X]大的第一个节点A[K]，则A[X]是A[K]的右孩子，且A[K]原来的右孩子此时将成为A[X]的左孩子。 若找不到A[K]则此时的树的根将作为A[X]的左孩子，A[X]将成为树的新的根节点。</p>
+<h4 id="R树（区域树）"><a href="#R树（区域树）" class="headerlink" title="R树（区域树）"></a>R树（区域树）</h4><p>实际上应该称作Rectangle Tree，而不是Region Tree</p>
+<h4 id="线段树"><a href="#线段树" class="headerlink" title="线段树"></a>线段树</h4><h4 id="区间树"><a href="#区间树" class="headerlink" title="区间树"></a>区间树</h4><h4 id="基数树"><a href="#基数树" class="headerlink" title="基数树"></a>基数树</h4><h4 id="左偏树"><a href="#左偏树" class="headerlink" title="左偏树"></a>左偏树</h4><h4 id="斜堆"><a href="#斜堆" class="headerlink" title="斜堆"></a>斜堆</h4><h4 id="Link-Cut-Tree-动态树-LCT"><a href="#Link-Cut-Tree-动态树-LCT" class="headerlink" title="Link Cut Tree 动态树 (LCT)"></a>Link Cut Tree 动态树 (LCT)</h4><h4 id="Top-Tree"><a href="#Top-Tree" class="headerlink" title="Top Tree"></a>Top Tree</h4><h4 id="划分树"><a href="#划分树" class="headerlink" title="划分树"></a>划分树</h4><p>—</p>
+<h4 id="势能分析"><a href="#势能分析" class="headerlink" title="势能分析"></a>势能分析</h4>]]></content>
+      <tags>
+        <tag>Note</tag>
+        <tag>Algorithm</tag>
+        <tag>Data Structure</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《计算机视觉：算法与应用》Note</title>
+    <url>/2018/11/02/cv-algorithms-and-applications/</url>
+    <content><![CDATA[<h2 id="Chapter-1"><a href="#Chapter-1" class="headerlink" title="Chapter 1"></a>Chapter 1</h2><img src="/2018/11/02/cv-algorithms-and-applications/cv_algo&app_ch1.png" class="">   
+<h2 id="Chapter-2"><a href="#Chapter-2" class="headerlink" title="Chapter 2"></a>Chapter 2</h2><h4 id="2-1"><a href="#2-1" class="headerlink" title="2.1"></a>2.1</h4><p>2D点 <script type="math/tex">x = (x,y) \in R^2</script> 或者 <script type="math/tex">\widetilde{x} = (\widetilde{x}, \widetilde{y}, \widetilde{\omega}) \in P^2</script></p>
+]]></content>
+      <tags>
+        <tag>Note</tag>
+        <tag>CV</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《Effective C++》Note</title>
+    <url>/2018/10/27/effective-c/</url>
+    <content><![CDATA[<h4 id="Item-1"><a href="#Item-1" class="headerlink" title="Item 1"></a>Item 1</h4><p>C++ is big</p>
+<h4 id="Item-20"><a href="#Item-20" class="headerlink" title="Item 20"></a>Item 20</h4><p>const &amp;<br>相对于直接传值带来效率的提高<br>避免多余的构造和析构<br>避免slicing（对象分割），派生类不会由基类复制构造产生，故也保留了本身的性质<br>对于内置类型以及STL迭代器和函数对象时，习惯上都被设计为传值</p>
+<h4 id="Item-21"><a href="#Item-21" class="headerlink" title="Item 21"></a>Item 21</h4><p>return object;<br>stack / heap 避免调用构造函数</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">inline</span> <span class="type">const</span> Rational <span class="keyword">operator</span> * (..)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">Rational</span>(..); <span class="comment">// Just return a new object</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Item-3"><a href="#Item-3" class="headerlink" title="Item 3"></a>Item 3</h4><p>const<br>常量 参数 返回值 成员函数<br>bitwise constness / logical constness (mutable)<br>casting away constness </p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">non_const&#123;</span><br><span class="line">	<span class="keyword">const_cast</span>&lt;&gt;(<span class="built_in">const</span>())</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Item-2"><a href="#Item-2" class="headerlink" title="Item 2"></a>Item 2</h4><p>const, enum, inline &gt; #define<br>class专属常量 </p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">x</span>&#123;</span><br><span class="line">	<span class="type">static</span> <span class="type">const</span> <span class="type">int</span> NumTurns; <span class="comment">// Declaration</span></span><br><span class="line">&#125; </span><br><span class="line"><span class="type">const</span> <span class="type">int</span> x::NumTurns = <span class="number">1</span>; <span class="comment">// Definition</span></span><br></pre></td></tr></table></figure>
+<p>enum hack<br>宏函数 —&gt; template inline</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">callWithMax</span><span class="params">(<span class="type">const</span> T&amp; s, <span class="type">const</span> T&amp; b)</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">f</span>(a &gt; b ? a : b);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Item-7"><a href="#Item-7" class="headerlink" title="Item 7"></a>Item 7</h4><p>多态基类 virtual ~()<br>避免基类的析构无法把派生类的一些内容清除<br>vptr</p>
+<h4 id="Item-24"><a href="#Item-24" class="headerlink" title="Item 24"></a>Item 24</h4><h4 id="Item-34"><a href="#Item-34" class="headerlink" title="Item 34"></a>Item 34</h4><p>接口继承 和 实现继承</p>
+<h4 id="Item-4"><a href="#Item-4" class="headerlink" title="Item 4"></a>Item 4</h4><p>Initialization<br>成员初值列<br>non-local static 单例模式</p>
+<h4 id="Item-5-amp-Item-6"><a href="#Item-5-amp-Item-6" class="headerlink" title="Item 5 &amp; Item 6"></a>Item 5 &amp; Item 6</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Empty</span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="built_in">Empty</span>() &#123;...&#125;</span><br><span class="line">	<span class="built_in">Empty</span>(<span class="type">const</span> Empty&amp; rhs) &#123;...&#125;</span><br><span class="line">	~<span class="built_in">Empty</span>() &#123;...&#125;</span><br><span class="line">	</span><br><span class="line">	Empty&amp; <span class="keyword">operator</span>=(<span class="type">const</span> Empty&amp; rhs) &#123;...&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在没有reference以及const等条件限制下，编译器会自动生成这些函数，但是如果不想这些生成，则应该通过private或单独设计一个base class等方式不去定义</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Uncopyable</span>&#123;</span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line">	<span class="built_in">Uncopyable</span>() &#123;&#125;</span><br><span class="line">	~<span class="built_in">Uncopyable</span>() &#123;&#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="built_in">Uncopyable</span>(<span class="type">const</span> Uncopyable&amp;);</span><br><span class="line">	Uncopyable&amp; <span class="keyword">operator</span>=(<span class="type">const</span> Uncopyable&amp;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="Item-8"><a href="#Item-8" class="headerlink" title="Item 8"></a>Item 8</h4><p>不要让析构函数抛出异常</p>
+<h2 id="The-C-Programming-Language"><a href="#The-C-Programming-Language" class="headerlink" title="The C++ Programming Language"></a>The C++ Programming Language</h2><ul>
+<li>函数对象</li>
+<li>灵巧指针</li>
+<li>显式构造函数</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Coding</tag>
+        <tag>Programming_language</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ffmpeg入门的一点尝试</title>
+    <url>/2018/10/08/ffmpeg/</url>
+    <content><![CDATA[<p>慢慢地，也开始平淡于现实了啊……     </p>
+<p>FFmpeg 即 Fast Forward Moving Pictures Experts Group，可以说是一个非常强大的音视频编解码框架了，主要包含以下模块：</p>
+<ul>
+<li>AVFormat：格式封装模块</li>
+<li>AVCodec：编解码模块</li>
+<li>AVFilter：滤镜模块</li>
+<li>swscale：视频图像转换计算模块，图像缩放和像素格式转换</li>
+<li>swresample：音频转换计算模块，允许操作音频采样、音频通道布局转换和布局调整等</li>
+</ul>
+<p>相应的也会有编译好的工具：</p>
+<ul>
+<li>ffmpeg</li>
+<li>ffplay</li>
+<li>ffprobe：分析器</li>
+</ul>
+<p>一些基本概念提一下：</p>
+<ul>
+<li>封装格式：把视频和音频放到一个文件中，所以也可以认为是文件格式</li>
+<li>视频格式：视频编码格式</li>
+<li>视频码率：期望的压缩后视频的大小，用平均每秒多少bit来衡量一个视频大小</li>
+</ul>
+<p>FFmpeg的功能主要分为媒体格式转封装、音视频编解码、传输协议转换、支持Filter处理等。</p>
+<h3 id="FFmpeg-转封装"><a href="#FFmpeg-转封装" class="headerlink" title="FFmpeg 转封装"></a>FFmpeg 转封装</h3><p>首先介绍一下几个格式：</p>
+<ul>
+<li>MP4：<ul>
+<li>MP4 文件有许多个Box与FullBox组成</li>
+<li>每个Box由Header和Data两部分组成</li>
+<li>FullBox是Box的扩展，其在Box的基础上，在Header中增加8位version标志和24位的flags标志</li>
+<li>Header包含了整个Box的长度的大小和类型</li>
+<li>Data位Box的实际数据，可以是纯数据，也可以是更多的子Box</li>
+<li>当一个Box中的Data是一系列的子Box时，这个Box又可以称为Container Box</li>
+</ul>
+</li>
+<li>FLV：FLV分为两部分，一部分为FLV文件头，一部分为FLV文件内容  </li>
+</ul>
+<p>。。。未完待续</p>
+<h3 id="FFmpeg-转码"><a href="#FFmpeg-转码" class="headerlink" title="FFmpeg 转码"></a>FFmpeg 转码</h3><h3 id="FFmpeg-流媒体"><a href="#FFmpeg-流媒体" class="headerlink" title="FFmpeg 流媒体"></a>FFmpeg 流媒体</h3><h3 id="FFmpeg-滤镜"><a href="#FFmpeg-滤镜" class="headerlink" title="FFmpeg 滤镜"></a>FFmpeg 滤镜</h3><p>读着读着越来越觉得，好像要做的事重点不是FFmpeg能解决的QAQ</p>
+]]></content>
+      <tags>
+        <tag>Tools</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>关于OpenCV中的特征点检测</title>
+    <url>/2018/10/10/opencv-tracing/</url>
+    <content><![CDATA[<h3 id="齐次坐标"><a href="#齐次坐标" class="headerlink" title="齐次坐标"></a>齐次坐标</h3><h3 id="本质矩阵"><a href="#本质矩阵" class="headerlink" title="本质矩阵"></a>本质矩阵</h3><h3 id="单应矩阵"><a href="#单应矩阵" class="headerlink" title="单应矩阵"></a>单应矩阵</h3><h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h4><p><a href="https://blog.csdn.net/saltriver/article/details/79680364">https://blog.csdn.net/saltriver/article/details/79680364</a><br><a href="https://www.zhihu.com/question/59595799">https://www.zhihu.com/question/59595799</a></p>
+]]></content>
+      <tags>
+        <tag>Tools</tag>
+        <tag>CV</tag>
+        <tag>SLAM</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>关于拾音器和麦克风</title>
+    <url>/2018/10/09/pickup-and-microphone/</url>
+    <content><![CDATA[<p>感觉好像一直都是在烧，但是并没学到太多东西……</p>
+]]></content>
+      <tags>
+        <tag>Tools</tag>
+        <tag>Music</tag>
+        <tag>Guitar</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>关于拾音器和前级以及一些其他基础知识</title>
+    <url>/2018/10/11/pickup-and-di/</url>
+    <content><![CDATA[<p>感觉自己真的是挖了很多坑，买了很多东西，却真正深入地很少吧……   </p>
+<p>最近在入坑looper之后，为了能够采集吉他的声音，所以考虑起了拾音器和麦克风，在简单了解了一下之后，虽然麦克风后面用处会更大一些，但限于自己的水平和资金，还是决定从拾音器开始吧，麦克风的坑好像还是更深一些……</p>
+<p>关于木吉他的拾音器，简单的了解了一些的相对靠谱的牌子：</p>
+<ul>
+<li>Fishman</li>
+<li>Duncan</li>
+<li>LR </li>
+</ul>
+<p>至于前级(preamp)，就需要提到输出声音的音箱，音箱在输出声音之前，往往会对输入的声音进行处理，而这个处理的部分就可以称作前级。比较好的音箱会把这部分单独拿出来，也就是常说的箱头，而主要是喇叭的部分则被称为箱体。在前级和喇叭之间，用于放大功率的部分，被称为后级(poweramp)，也就是常说的功放。所以实际上可以认为效果器也是一种前级。</p>
+]]></content>
+      <tags>
+        <tag>Else</tag>
+        <tag>Guitar</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>关于挑选路由器</title>
+    <url>/2018/10/04/routers-choose/</url>
+    <content><![CDATA[<p>由于想要搭建一个局域网，并且后面有搭建微服务器的考虑，所以想来想去觉得需要一个好一点的路由器，在随便搜了一把之后就发现，路由器里的学问不比装机少……</p>
+<p>首先一些名词：</p>
+<ul>
+<li>AC：AC路由器是指基于802.11AC无线标准的路由器</li>
+<li>mu-mimo：multi-user, multi-input, multi-output  </li>
+<li>双拨：当ISP供应商没有限制的时候，可以通过多条网线同时拨号来提高带宽</li>
+<li>Merlin：固件，多针对于华硕和Netgears的产品，国内有对应的改版梅林</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Else</tag>
+        <tag>Tools</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>自由泳？</title>
+    <url>/2018/10/10/swim-freestyle/</url>
+    <content><![CDATA[<p>在想学很久之后，才真的打算好好学一学了</p>
+<p>在学自由泳之前，也开始注意到了自己蛙泳里面的一些问题，包括进阶要从哪里着手，这里顺带整理下来</p>
+]]></content>
+      <tags>
+        <tag>Else</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>视觉里程计</title>
+    <url>/2018/10/10/slam-vo/</url>
+    <content><![CDATA[<p>最近要开始做一个在视频中添加软广告的项目，虽然第一感觉肯定是要用GAN或者VAE这种生成模型去搞，但是老师说先用硬方法试一下，学学FFmpeg……？？？<br>简单思考了一下，感觉这个问题要用硬方法解决的话不是很简单……首先至少要能够估计出来相机镜头的变化，有点类似于SLAM前端干的事情，并且当场景中目标添加物也发生变化时，两者的运动就要同时考虑。并且如果还要考虑直接将贴图进行适配的话，就还需要一定的场景识别。</p>
+<p>关于估计相机移动轨迹，基本上就是SLAM前端视觉里程计（VO）在实现的目标，就是通过相邻图像的信息来对相机的运动进行估计。根据是否需要特征点分为两大类方法，采用特征点往往会更加稳定，对光照以及动态物体不敏感，相对比较稳定。</p>
+<p>在正式讲视觉里程计之前，先铺垫一下相关内容：</p>
+<h3 id="针孔相机模型"><a href="#针孔相机模型" class="headerlink" title="针孔相机模型"></a>针孔相机模型</h3><ul>
+<li><p>小孔成像模型  </p>
+<script type="math/tex; mode=display">ZP_{uv} = K(RP_\omega+t) = KTP_\omega</script><p>  Z为物体距离针孔的距离，K为相机的内参，涉及到焦距以及相机内部的偏移，相机的位姿R，t又称为相机的外参，即待估计的目标。<br>  其中<script type="math/tex">P_\omega</script>称为世界坐标，<script type="math/tex">P_{uv}</script>称为像素坐标，<script type="math/tex">\tilde{P_c} = RP_\omega+t</script>称为相机坐标。</p>
+</li>
+<li><p>畸变<br>  由透镜引起的畸变称为径向畸变，越靠近边缘现象越明显，主要分为桶形畸变和枕形畸变。<br>  在相机组装过程中由于不能使透镜和成像面严格平行也会引入切向畸变。</p>
+</li>
+</ul>
+<h3 id="视觉里程计"><a href="#视觉里程计" class="headerlink" title="视觉里程计"></a>视觉里程计</h3><h4 id="特征点"><a href="#特征点" class="headerlink" title="特征点"></a>特征点</h4><p>在经典SLAM模型中，会选取有代表性的点来作为“路标”，对应视觉SLAM中的特征点。类似角点，边缘，区块都可以作为特征点，好的特征点应该具有：</p>
+<ul>
+<li>可重复性</li>
+<li>可区别性</li>
+<li>高效率</li>
+<li>本地性    </li>
+</ul>
+<p>特征点包括关键点和描述子。描述子可以认为是进一步描述特征点的信息，往往是一个向量。</p>
+<ul>
+<li><p>FAST关键点<br>  一种主要检测灰度变化的角点，速度很快。还可以进一步加速（FAST-12算法）。大致操作就是对像素逐个分析周围像素亮度的变化，如果大于设定阈值，则认为是特征点，但是这样容易造成FAST角点”扎堆“，所以在过完一遍之后还要对角点集中的区域挑出极大值保留（非极大值抑制）。</p>
+</li>
+<li><p>ORB特征<br>  “Oriented FAST“，所以其实是一种改进的FAST的角点。FAST虽然很快，但是数量很大并且不确定，并且由于灰度采样时采用的原型不具有方向性和尺度，故ORB进一步在FAST角点上计算Harris响应值，然后选取前N大响应值对应的角点，对于方向性和尺度，ORB通过构建图像金字塔，在每一层上进行特征点检测，并且通过灰度质心法来实现特征的旋转（通过连接灰度质心和几何质心的向量来表示方向）。<br>  在得到特征点之后对每个点计算BRIEF特征描述，大致是通过关键点周围一些像素点阵的关系来得到一个描述向量。可以结合前面得到的方向信息计算旋转之后的”Steer BRIEF”来对旋转有一个很好的鲁棒性。</p>
+</li>
+</ul>
+<ul>
+<li>特征匹配<ul>
+<li>暴力匹配，通过比较和所有变化后特征点的相似程度，挑选最相似的（往往用欧氏距离或汉明距离）</li>
+<li><a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.160.1721&amp;rep=rep1&amp;type=pdf">快速近似近邻（FLANN）</a></li>
+</ul>
+</li>
+</ul>
+<h4 id="2D-2D：对极几何"><a href="#2D-2D：对极几何" class="headerlink" title="2D-2D：对极几何"></a>2D-2D：对极几何</h4><ul>
+<li>对极约束</li>
+</ul>
+<h3 id="SLAM"><a href="#SLAM" class="headerlink" title="SLAM"></a>SLAM</h3><p>整个SLAM大概可以分为前端和后端，前端相当于VO（视觉里程计），研究帧与帧之间变换关系。首先提取每帧图像特征点，利用相邻帧图像，进行特征点匹配，然后利用RANSAC去除大噪声，然后进行匹配，得到一个pose信息（位置和姿态），同时可以利用IMU（Inertial measurement unit惯性测量单元）提供的姿态信息进行滤波融合</p>
+<p>后端则主要是对前端出结果进行优化，利用滤波理论（EKF、UKF、PF）、或者优化理论TORO、G2O进行树或者图的优化。最终得到最优的位姿估计。</p>
+<p>后端这边难点比较多，涉及到的数学知识也比较多，总的来说大家已经慢慢抛弃传统的滤波理论走向图优化去了。</p>
+<p>因为基于滤波的理论，滤波器稳度增长太快，这对于需要频繁求逆的EKF（扩展卡尔曼滤波器），PF压力很大。而基于图的SLAM，通常以keyframe（关键帧）为基础，建立多个节点和节点之间的相对变换关系，比如仿射变换矩阵，并不断地进行关键节点的维护，保证图的容量，在保证精度的同时，降低了计算量。</p>
+<p>列举几个目前比较有名的SLAM算法：PTAM,MonoSLAM, ORB-SLAM,RGBD-SLAM,RTAB-SLAM,LSD-SLAM。</p>
+<hr>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p>《视觉SLAM十四讲》Chapter 7 视觉里程计 1 </p>
+<script type="math/tex; mode=display">p_1 = KP</script><script type="math/tex; mode=display">p_2 = K(RP + t)</script><script type="math/tex; mode=display">p_2^TK^{-T}t^\land RK^{-1}p_1 = 0</script><h3 id="相机标定"><a href="#相机标定" class="headerlink" title="相机标定"></a>相机标定</h3><p> d</p>
+]]></content>
+      <tags>
+        <tag>CV</tag>
+        <tag>SLAM</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>关于wireshark</title>
+    <url>/2018/10/24/wireshark/</url>
+    <content><![CDATA[<p>最近图书馆的网速卡到爆，好像一直都挺卡……</p>
+<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h4><p>《Wireshark网络分析就这么简单》 by 林沛满<br>《Wireshark网络分析的艺术》by 林沛满 </p>
+]]></content>
+      <tags>
+        <tag>Tools</tag>
+      </tags>
+  </entry>
+</search>
